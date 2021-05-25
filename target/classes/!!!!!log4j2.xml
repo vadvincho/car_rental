@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="DEBUG">
+    <Appenders>
+        <Console name="LogToConsole" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+        <Console name="LogToConsoleError" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+        <File name="LogToFileApp" fileName="log/app.log" append="true">
+            <PatternLayout>
+                <Pattern>%d %p %c{1.} [%t] %m%n</Pattern>
+            </PatternLayout>
+        </File>
+        <File name="LogToFileHibernate" fileName="log/hibernate.log" append="false">
+            <PatternLayout>
+                <Pattern>%d %p %c{1.} [%t] %m%n</Pattern>
+            </PatternLayout>
+        </File>
+        <File name="LogToFileSpringframework" fileName="log/springframework.log" append="false">
+            <PatternLayout>
+                <Pattern>%d %p %c{1.} [%t] %m%n</Pattern>
+            </PatternLayout>
+        </File>
+    </Appenders>
+    <Loggers>
+
+        <Logger name="org.hibernate.engine" level="debug" additivity="false">
+            <AppenderRef ref="LogToConsole" level="error"/>
+            <AppenderRef ref="LogToFileHibernate" />
+        </Logger>
+        <Logger name="org.springframework" level="debug" additivity="false">
+            <AppenderRef ref="LogToFileSpringframework"/>
+        </Logger>
+
+
+<!--        <Logger name="com.javamaster.springsecurityjwt" level="debug" additivity="true">-->
+<!--            <AppenderRef ref="LogToFile"/>-->
+<!--            <AppenderRef ref="LogToConsole"/>-->
+<!--        </Logger>-->
+
+        <Root level="error">
+            <AppenderRef ref="LogToConsole"/>
+        </Root>
+    </Loggers>
+</Configuration>
