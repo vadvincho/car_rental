@@ -5,26 +5,99 @@
     <title>Title</title>
 </head>
 <body>
-<h1> test</h1>
+<select id="selctor">
+    <option>Пункт 1</option>
+    <option>Пункт 2</option>
+</select>
+<table id="userdata">
+    <thead>
+    <tr>
+        <th>id</th>
+        <th>carModel</th>
+        <th>carStatus</th>
+        <th>totalMileage</th>
+    </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+
+<button id="btn1">Press me!</button>
+<input type="button" id="btn2" value="Press me!"/>
+
 <script>
-    var xhr = new XMLHttpRequest()
-    xhr.open(
-        'GET',
-        'http://localhost:8081/cars',
-        true
-    )
-    xhr.responseType='json'
-    xhr.send()
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState != 4) {
-            return
-        }
-        if (xhr.status === 200) {
-            console.log('result', JSON.parse(xhr.responseText))
-        } else {
-            console.log('err', xhr.responseText)
+    function getAllCars() {
+        fetch('http://localhost:8081/cars')
+            .then(
+                response => {
+                    if (response.status !== 200) {
+                        console.log('Looks like there was a problem. Status Code: ' +
+                            response.status);
+                        return;
+                    }
+                    response.json().then(function (data) {
+                        fBuildTable(data)
+                    });
+                })
+            .catch(err => console.log('Fetch Error :-S', err));
+
+        function fBuildTable(data) {
+            var tBody = document.getElementById('userdata').tBodies[0];
+            data.forEach(function (car) {
+                var tRow = tBody.insertRow();
+                for (key in car) {
+                    var tCell = tRow.insertCell();
+                    if (key === "carModel") {
+                        let str = car[key].carMake.name + ' ' + car[key].name;
+                        tCell.innerHTML = str;
+                    } else if (key === "carStatus") {
+                        tCell.innerHTML = car[key].status;
+                    } else {
+                        tCell.innerHTML = car[key];
+                    }
+                }
+            });
         }
     }
+
+    function getAllCarsSelector() {
+        fetch('http://localhost:8081/cars')
+            .then(
+                response => {
+                    if (response.status !== 200) {
+                        console.log('Looks like there was a problem. Status Code: ' +
+                            response.status);
+                        return;
+                    }
+                    response.json().then(function (data) {
+                        fBuildTable(data)
+                    });
+                })
+            .catch(err => console.log('Fetch Error :-S', err));
+
+        function fBuildSelector(data) {
+            var tBody = document.getElementById('selector');
+            data.forEach(function (car) {
+                var tRow = tBody.insertRow();
+                for (key in car) {
+                    var tCell = tRow.insertCell();
+                    if (key === "carModel") {
+                        let str = car[key].carMake.name + ' ' + car[key].name;
+                        tCell.innerHTML = str;
+                    } else if (key === "carStatus") {
+                        tCell.innerHTML = car[key].status;
+                    } else {
+                        tCell.innerHTML = car[key];
+                    }
+                }
+            });
+        }
+    }
+    var btn1 = document.getElementById('btn1'),
+        btn2 = document.getElementById('btn2');
+
+    btn1.onclick = getAllCars;
+    btn2.onclick = getAllCars;
 </script>
 </body>
 </html>
