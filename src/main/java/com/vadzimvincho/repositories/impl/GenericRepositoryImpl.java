@@ -1,6 +1,8 @@
 package com.vadzimvincho.repositories.impl;
 
+import com.vadzimvincho.exceptions.DaoException;
 import com.vadzimvincho.models.entity.BaseEntity;
+import com.vadzimvincho.models.entity.Car;
 import com.vadzimvincho.repositories.api.GenericRepository;
 
 import javax.persistence.EntityManager;
@@ -19,32 +21,33 @@ public class GenericRepositoryImpl<T extends BaseEntity> implements GenericRepos
     protected EntityManager entityManager;
 
     @Override
-    public Long add(T object){
+    public Long add(T object) throws DaoException {
         try {
+
             entityManager.persist(object);
         } catch (PersistenceException e) {
-            e.printStackTrace();
+            throw new DaoException(e);
         }
         return object.getId();
     }
 
     @Override
-    public T getById(Long id){
+    public T getById(Long id) throws DaoException {
         return (T) entityManager.find(tClass, id);
     }
 
     @Override
-    public void update(T object){
+    public void update(T object) {
         entityManager.merge(object);
     }
 
     @Override
-    public void remove(T object){
+    public void remove(T object) {
         entityManager.remove(entityManager.contains(object) ? object : entityManager.merge(object));
     }
 
     @Override
-    public List<T> getAll(){
+    public List<T> getAll() throws DaoException {
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
         CriteriaQuery<T> criteriaQuery = criteriaBuilder.createQuery(tClass);
         Root<T> root = criteriaQuery.from(tClass);

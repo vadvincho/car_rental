@@ -1,6 +1,6 @@
 package com.vadzimvincho.configs.security.SecurityUserDetails;
 
-import com.vadzimvincho.services.impl.UserService;
+import com.vadzimvincho.services.api.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

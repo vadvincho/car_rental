@@ -1,6 +1,6 @@
 package com.vadzimvincho.exceptions;
 
-public class DaoException extends Exception {
+public class DaoException extends RuntimeException {
     public DaoException(Exception e) {
         super(e);
     }

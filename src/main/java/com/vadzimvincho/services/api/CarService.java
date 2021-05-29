@@ -8,4 +8,5 @@ import java.util.List;
 public interface CarService extends GenericService<Car>{
     List<Car> getByModel(Long id);
     List<Car> getByStatus(EnumCarStatus status);
+    List<Car> getAvailableCar();
 }

@@ -2,7 +2,8 @@ package com.vadzimvincho.controllers;
 
 import com.vadzimvincho.models.dto.RegistrationRequestDto;
 import com.vadzimvincho.models.entity.AppUser;
-import com.vadzimvincho.services.impl.UserService;
+
+import com.vadzimvincho.services.api.UserService;
 import jakarta.validation.Valid;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;

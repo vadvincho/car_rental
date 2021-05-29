@@ -6,6 +6,8 @@ import com.vadzimvincho.models.entity.CarModel;
 
 import com.vadzimvincho.services.api.CarModelService;
 import org.modelmapper.ModelMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,9 +19,10 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping(value = "/car-models", produces = "application/json")
 public class CarModelControllerRest {
+    private final CarModelService carModelService;
+    private final ModelMapper modelMapper;
+    private final static Logger logger = LoggerFactory.getLogger(CarModelControllerRest.class);
 
-    private CarModelService carModelService;
-    private ModelMapper modelMapper;
     @Autowired
     public CarModelControllerRest(CarModelService carModelService, ModelMapper modelMapper) {
         this.carModelService = carModelService;

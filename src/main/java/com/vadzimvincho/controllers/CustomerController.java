@@ -22,7 +22,7 @@ public class CustomerController {
         this.customerService = customerService;
     }
 
-    @GetMapping("/customers")
+    @GetMapping("/customer")
     String getAll(Model model) throws DaoException {
         List<Customer> customers = customerService.getAll();
         model.addAttribute("customers", customers);

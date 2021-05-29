@@ -1,11 +1,11 @@
 package com.vadzimvincho.models.dto;
 
-public class CustomerDto extends BaseEntityDto{
+public class CustomerDto extends BaseEntityDto {
     private String name;
     private String phoneNumber;
     private String passport;
-    private Long userId;
-    private double money;
+    private AppUserDto user;
+    private Double balance;
 
     public CustomerDto() {
     }
@@ -34,30 +34,19 @@ public class CustomerDto extends BaseEntityDto{
         this.passport = passport;
     }
 
-    public Long getUserId() {
-        return userId;
+    public AppUserDto getUser() {
+        return user;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setUser(AppUserDto user) {
+        this.user = user;
     }
 
-    public double getMoney() {
-        return money;
+    public Double getBalance() {
+        return balance;
     }
 
-    public void setMoney(double money) {
-        this.money = money;
-    }
-
-    @Override
-    public String toString() {
-        return "CustomerDto{" +
-                "name='" + name + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", passport='" + passport + '\'' +
-                ", userId=" + userId +
-                ", money=" + money +
-                '}';
+    public void setBalance(Double balance) {
+        this.balance = balance;
     }
 }

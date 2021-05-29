@@ -1,7 +1,5 @@
 package com.vadzimvincho.models.entity;
 
-import com.vadzimvincho.models.entity.BaseEntity;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;

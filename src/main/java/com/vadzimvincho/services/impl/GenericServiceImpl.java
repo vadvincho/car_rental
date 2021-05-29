@@ -96,17 +96,4 @@ public class GenericServiceImpl<T extends BaseEntity, R extends GenericRepositor
         });
         return t;
     }
-
-//    private T patch(T tPatch) throws DaoException {
-//        T t = (T) ownRepository.getById(tPatch.getId());
-//        ReflectionUtils.doWithFields(tPatch.getClass(), tPatchField -> {
-//            ReflectionUtils.makeAccessible(tPatchField);
-//            if (tPatchField.get(tPatch) != null) {
-//                Field tField = ReflectionUtils.findField(t.getClass(), tPatchField.getName());
-//                ReflectionUtils.makeAccessible(tField);
-//                ReflectionUtils.setField(tField, t, tPatchField.get(t));
-//            }
-//        });
-//        return t;
-//    }
 }

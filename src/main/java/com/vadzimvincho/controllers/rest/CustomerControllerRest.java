@@ -65,20 +65,9 @@ public class CustomerControllerRest {
         return ResponseEntity.ok(HttpStatus.OK);
     }
 
-    @GetMapping(value = "/order/{id}")
-    public CustomerDto getByOrder(@PathVariable("id") Long id) throws DaoException {
-        return modelMapper.map(customerService.getByOrder(id), CustomerDto.class);
-    }
-
     @PostMapping(value="/top-up-balance")
     public ResponseEntity<HttpStatus> topUpBalance(@RequestBody CustomerBalanceDto money) throws DaoException {
         customerService.topUpBalance(money);
-        return ResponseEntity.ok(HttpStatus.OK);
-    }
-
-    @PostMapping(value="/pay-for-order")
-    public ResponseEntity<HttpStatus> payForOrder(@RequestBody Long orderId) throws DaoException {
-        customerService.payForOrder(orderId);
         return ResponseEntity.ok(HttpStatus.OK);
     }
 

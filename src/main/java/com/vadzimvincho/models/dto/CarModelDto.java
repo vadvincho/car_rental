@@ -1,10 +1,8 @@
 package com.vadzimvincho.models.dto;
 
-import com.vadzimvincho.models.entity.CarMake;
-
 public class CarModelDto extends BaseEntityDto {
 
-    private CarMake carMake;
+    private CarMakeDto carMake;
     private String name;
     private Long year;
     private String bodyStyle;
@@ -13,11 +11,11 @@ public class CarModelDto extends BaseEntityDto {
     public CarModelDto() {
     }
 
-    public CarMake getCarMake() {
+    public CarMakeDto getCarMake() {
         return carMake;
     }
 
-    public void setCarMake(CarMake carMake) {
+    public void setCarMake(CarMakeDto carMake) {
         this.carMake = carMake;
     }
 

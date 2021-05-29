@@ -1,29 +1,26 @@
 package com.vadzimvincho.models.dto;
 
-import com.vadzimvincho.models.entity.CarModel;
-import com.vadzimvincho.models.entity.CarStatus;
-
-public class CarDto extends BaseEntityDto{
-    private CarModel carModel;
-    private CarStatus carStatus;
+public class CarDto extends BaseEntityDto {
+    private CarModelDto carModel;
+    private CarStatusDto carStatus;
     private long totalMileage;
 
     public CarDto() {
     }
 
-    public CarModel getCarModel() {
+    public CarModelDto getCarModel() {
         return carModel;
     }
 
-    public void setCarModel(CarModel carModel) {
+    public void setCarModel(CarModelDto carModel) {
         this.carModel = carModel;
     }
 
-    public CarStatus getCarStatus() {
+    public CarStatusDto getCarStatus() {
         return carStatus;
     }
 
-    public void setCarStatus(CarStatus carStatus) {
+    public void setCarStatus(CarStatusDto carStatus) {
         this.carStatus = carStatus;
     }
 

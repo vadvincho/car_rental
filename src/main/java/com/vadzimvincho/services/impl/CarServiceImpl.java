@@ -30,4 +30,9 @@ public class CarServiceImpl extends GenericServiceImpl<Car, CarRepository> imple
     public List<Car> getByStatus(EnumCarStatus status) {
         return this.ownRepository.getByStatus(status);
     }
+
+    @Override
+    public List<Car> getAvailableCar() {
+        return getByStatus(EnumCarStatus.AVAILABLE);
+    }
 }

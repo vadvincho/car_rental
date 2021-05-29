@@ -6,10 +6,19 @@ import com.vadzimvincho.models.entity.CarStatus;
 import com.vadzimvincho.models.dto.CarDto;
 import com.vadzimvincho.services.api.CarService;
 import org.modelmapper.ModelMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -17,9 +26,10 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping(value = "/cars", produces = "application/json")
 public class CarControllerRest {
+    private final CarService carService;
+    private final ModelMapper modelMapper;
+    private final static Logger logger = LoggerFactory.getLogger(CarControllerRest.class);
 
-    private CarService carService;
-    private ModelMapper modelMapper;
     @Autowired
     public CarControllerRest(CarService carService, ModelMapper modelMapper) {
         this.carService = carService;
@@ -62,6 +72,11 @@ public class CarControllerRest {
     @GetMapping(value = "/status")
     public List<CarDto> getByStatus(@RequestBody CarStatus status) {
         return getCarDto(carService.getByStatus(status.getStatus()));
+    }
+
+    @GetMapping(value = "/status-available")
+    public List<CarDto> getAvailableCar() {
+        return getCarDto(carService.getAvailableCar());
     }
 
 

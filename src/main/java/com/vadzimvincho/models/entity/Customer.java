@@ -1,8 +1,5 @@
 package com.vadzimvincho.models.entity;
 
-import com.vadzimvincho.models.entity.AppUser;
-import com.vadzimvincho.models.entity.BaseEntity;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -23,8 +20,8 @@ public class Customer extends BaseEntity {
     @OneToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private AppUser user;
-    @Column(name = "money")
-    private double money;
+    @Column(name = "balance")
+    private Double balance;
 
     public Customer() {
     }
@@ -61,21 +58,19 @@ public class Customer extends BaseEntity {
         this.user = user;
     }
 
-    public double getMoney() {
-        return money;
+    public double getBalance() {
+        return balance;
     }
 
-    public void setMoney(double money) {
-        this.money = money;
+    public void setBalance(double balance) {
+        this.balance = balance;
     }
-
     @Override
     public String toString() {
         return "Customer{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", user=" + user +
-                ", money=" + money +
                 "} " + super.toString();
     }
 }

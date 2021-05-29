@@ -1,8 +1,11 @@
 package com.vadzimvincho.controllers.rest;
 
+import com.vadzimvincho.exceptions.CarStatusException;
 import com.vadzimvincho.exceptions.DaoException;
+import com.vadzimvincho.exceptions.ResponseMessage;
 import com.vadzimvincho.models.dto.OrderDto;
 import com.vadzimvincho.models.entity.Order;
+import com.vadzimvincho.services.api.CustomerService;
 import com.vadzimvincho.services.api.OrderService;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
@@ -29,9 +32,9 @@ public class OrderControllerRest {
     }
 
     @PostMapping
-    public ResponseEntity<HttpStatus> add(@RequestBody OrderDto orderDto) throws DaoException {
-        orderService.add(modelMapper.map(orderDto, Order.class));
-        return ResponseEntity.ok(HttpStatus.OK);
+    public ResponseEntity add(@RequestBody OrderDto orderDto) throws DaoException {
+        orderService.create(modelMapper.map(orderDto, Order.class));
+        return ResponseEntity.ok(new ResponseMessage("Order created"));
     }
 
     @DeleteMapping(value = "/{id}")
@@ -55,6 +58,14 @@ public class OrderControllerRest {
         orderService.update(modelMapper.map(orderDto, Order.class));
         return ResponseEntity.ok(HttpStatus.OK);
     }
+
+
+
+//    @PostMapping(value="/pay-for-order")
+//    public ResponseEntity<HttpStatus> payForOrder(@RequestBody Long orderId) throws DaoException {
+//        orderService.payForOrder(orderId);
+//        return ResponseEntity.ok(HttpStatus.OK);
+//    }
 
     private List<OrderDto> getOrderDto(List<Order> allOrders) {
         return allOrders.stream()
