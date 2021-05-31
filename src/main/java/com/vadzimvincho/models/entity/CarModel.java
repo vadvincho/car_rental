@@ -2,12 +2,9 @@ package com.vadzimvincho.models.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -15,9 +12,8 @@ import javax.persistence.Table;
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class CarModel extends BaseEntity {
 
-    @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
-    @JoinColumn(name = "car_make_id")
-    private CarMake carMake;
+    @Column(name = "car_make")
+    private String carMake;
     @Column(name = "name")
     private String name;
     @Column(name = "year")
@@ -30,7 +26,7 @@ public class CarModel extends BaseEntity {
     public CarModel() {
     }
 
-    public CarModel(CarMake carMake, String name, Long year, String bodyStyle, String fuel) {
+    public CarModel(String carMake, String name, Long year, String bodyStyle, String fuel) {
         this.carMake = carMake;
         this.name = name;
         this.year = year;
@@ -38,11 +34,11 @@ public class CarModel extends BaseEntity {
         this.fuel = fuel;
     }
 
-    public CarMake getCarMake() {
+    public String getCarMake() {
         return carMake;
     }
 
-    public void setCarMake(CarMake carMake) {
+    public void setCarMake(String carMake) {
         this.carMake = carMake;
     }
 
@@ -78,13 +74,13 @@ public class CarModel extends BaseEntity {
         this.fuel = fuel;
     }
 
+
     @Override
     public String toString() {
         return "CarModel{" +
-                "id=" + id +
-                ", carMake=" + carMake +
+                "carMake='" + carMake + '\'' +
                 ", name='" + name + '\'' +
                 ", year=" + year +
-                "}";
+                "} " + super.toString();
     }
 }
