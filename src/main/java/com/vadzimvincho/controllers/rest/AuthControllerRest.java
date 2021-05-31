@@ -1,7 +1,7 @@
 package com.vadzimvincho.controllers.rest;
 
 import com.vadzimvincho.configs.security.jwt.JwtProvider;
-import com.vadzimvincho.exceptions.ResponseMessage;
+import com.vadzimvincho.exceptions.Message;
 import com.vadzimvincho.models.dto.AuthRequestDto;
 import com.vadzimvincho.models.dto.AuthResponseDto;
 import com.vadzimvincho.models.entity.AppUser;
@@ -11,10 +11,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.Cookie;
@@ -27,7 +25,7 @@ public class AuthControllerRest {
     @Value("${authorization}")
     public String AUTHORIZATION;
     @Value("${COOKIE_EXPIRY_IN_SECONDS}")
-    private Integer COOKIE_EXPIRY_IN_SECONDS;
+    private String COOKIE_EXPIRY_IN_SECONDS;
 
     private final JwtProvider jwtProvider;
     private final UserService userService;
@@ -45,17 +43,17 @@ public class AuthControllerRest {
         try {
             appUser = userService.findByLoginAndPassword(authDto.getLogin(), authDto.getPassword());
         } catch (UsernameNotFoundException e) {
-            return ResponseEntity.badRequest().body(new ResponseMessage("User with such login and/or password wasn't found"));
+            return ResponseEntity.badRequest().body(new Message("User with such login and/or password wasn't found"));
         }
         if (appUser != null) {
             String token = jwtProvider.generateToken(appUser.getLogin());
             Cookie cookie = new Cookie(AUTHORIZATION, token);
-            cookie.setMaxAge(COOKIE_EXPIRY_IN_SECONDS);
+            cookie.setMaxAge(Integer.valueOf(COOKIE_EXPIRY_IN_SECONDS));
             cookie.setSecure(false);
             cookie.setHttpOnly(true);
             response.addCookie(cookie);
         }
-        return ResponseEntity.ok(new ResponseMessage("User "+ appUser.getLogin()+" login"));
+        return ResponseEntity.ok(new Message("User "+ appUser.getLogin()+" login"));
     }
 
     @GetMapping("/logout2")
@@ -67,7 +65,7 @@ public class AuthControllerRest {
                 response.addCookie(cookie);
             }
         }
-        return ResponseEntity.ok(new ResponseMessage("Logout success"));
+        return ResponseEntity.ok(new Message("Logout success"));
     }
 
     @PostMapping("/auth")
