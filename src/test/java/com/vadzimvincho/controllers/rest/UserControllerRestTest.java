@@ -3,11 +3,10 @@ package com.vadzimvincho.controllers.rest;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.vadzimvincho.configs.WebConfig;
-import com.vadzimvincho.models.dto.CarDto;
-import com.vadzimvincho.models.entity.Car;
-import com.vadzimvincho.models.entity.CarModel;
-import com.vadzimvincho.services.api.CarModelService;
-import com.vadzimvincho.services.api.CarService;
+import com.vadzimvincho.models.dto.AppUserDto;
+import com.vadzimvincho.models.entity.AppUser;
+import com.vadzimvincho.repositories.api.RoleRepository;
+import com.vadzimvincho.services.api.UserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.modelmapper.ModelMapper;
@@ -28,11 +27,11 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @RunWith(SpringRunner.class)
 @Transactional
 @ContextConfiguration(classes = {WebConfig.class})
-public class CarControllerRestTest {
+public class UserControllerRestTest {
     @Autowired
-    CarModelService carModelService;
+    UserService userService;
     @Autowired
-    CarService carService;
+    RoleRepository roleRepository;
     @Autowired
     private MockMvc mockMvc;
     @Autowired
@@ -47,75 +46,73 @@ public class CarControllerRestTest {
     public void getAll() throws Exception {
         mockMvc.perform(
                 MockMvcRequestBuilders
-                        .get("/cars")
+                        .get("/users")
                         .accept(MediaType.APPLICATION_JSON)
         ).andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.[0].carModel.name")
-                        .value("FOCUS"))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.[1].carModel.name")
-                        .value("A6"))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.[2].carModel.name")
-                        .value("GOLF"))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.[3].carModel.name")
-                        .value("PASSAT"));
+                .andExpect(MockMvcResultMatchers.jsonPath("$.[0].login")
+                        .value("admin"))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.[1].login")
+                        .value("testuser1"))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.[2].login")
+                        .value("testuser2"));
     }
 
     @Test
     public void getById() throws Exception {
         mockMvc.perform(
                 MockMvcRequestBuilders
-                        .get("/cars/1")
+                        .get("/users/1")
                         .accept(MediaType.APPLICATION_JSON)
         ).andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.carModel.name")
-                        .value("FOCUS"))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.carModel.year")
-                        .value("2015"));
+                .andExpect(MockMvcResultMatchers.jsonPath("$.login")
+                        .value("admin"));
     }
 
     @Test
     public void add() throws Exception {
-        CarModel carModel = carModelService.getById(2l);
-        Car car = new Car();
-        car.setCarModel(carModel);
+        AppUser user = new AppUser();
+        user.setRole(roleRepository.getById(1L));
+        user.setLogin("test");
+        user.setEmail("test@test.com");
+        user.setPassword("12345");
 
         mockMvc.perform(
                 MockMvcRequestBuilders
-                        .post("/cars")
+                        .post("/users")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content(objToJson(modelMapper.map(car, CarDto.class)))
+                        .content(objToJson(modelMapper.map(user, AppUserDto.class)))
                         .accept(MediaType.APPLICATION_JSON)
         ).andDo(print())
                 .andExpect(status().isOk());
-        assert carService.getAll().size() == 7;
-        assert carService.getById(7L).getCarModel().getName().equals("A6");
+        assert userService.getAll().size() == 4;
+        assert userService.getById(4L).getLogin().equals("test");
     }
 
     @Test
     public void remove() throws Exception {
         mockMvc.perform(
                 MockMvcRequestBuilders
-                        .delete("/cars/2")
+                        .delete("/users/2")
                         .accept(MediaType.APPLICATION_JSON)
         ).andDo(print())
                 .andExpect(status().isOk());
-        assert carService.getAll().size() == 5;
+        assert userService.getAll().size() == 2;
     }
 
     @Test
     public void update() throws Exception {
-        Car car = carService.getById(1L);
-        car.setTotalMileage(20000);
+        AppUser user = userService.getById(1L);
+        user.setLogin("test");
         mockMvc.perform(
                 MockMvcRequestBuilders
-                        .patch("/cars")
+                        .patch("/users")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content(objToJson(modelMapper.map(car, CarDto.class)))
+                        .content(objToJson(modelMapper.map(user, AppUserDto.class)))
                         .accept(MediaType.APPLICATION_JSON)
         ).andDo(print())
                 .andExpect(status().isOk());
-        assert carService.getById(1L).getTotalMileage() == 20000;
+        assert userService.getById(1L).getLogin().equals("test");
     }
 }

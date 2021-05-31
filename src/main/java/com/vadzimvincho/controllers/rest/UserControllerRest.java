@@ -1,7 +1,7 @@
 package com.vadzimvincho.controllers.rest;
 
 import com.vadzimvincho.exceptions.DaoException;
-import com.vadzimvincho.exceptions.ResponseMessage;
+import com.vadzimvincho.exceptions.Message;
 import com.vadzimvincho.models.dto.AppUserDto;
 import com.vadzimvincho.models.entity.AppUser;
 import com.vadzimvincho.services.api.UserService;
@@ -33,10 +33,10 @@ public class UserControllerRest {
         if (userService.findByLogin(appUserDto.getLogin()) != null) {
             return ResponseEntity
                     .badRequest()
-                    .body(new ResponseMessage("Error: User with such login is exist"));
+                    .body(new Message("Error: User with such login is exist"));
         } else {
             userService.saveUser(modelMapper.map(appUserDto, AppUser.class));
-            return ResponseEntity.ok(new ResponseMessage("User " + appUserDto.getLogin() + " created"));
+            return ResponseEntity.ok(new Message("User " + appUserDto.getLogin() + " created"));
         }
     }
 
@@ -65,7 +65,7 @@ public class UserControllerRest {
     @PatchMapping
     public ResponseEntity update(@RequestBody AppUserDto appUserDto) throws DaoException {
         userService.update(modelMapper.map(appUserDto, AppUser.class));
-        return ResponseEntity.ok(new ResponseMessage("User " + appUserDto.getLogin() + " updated"));
+        return ResponseEntity.ok(new Message("User " + appUserDto.getLogin() + " updated"));
     }
 
     private List<AppUserDto> getAppUserDto(List<AppUser> allUsers) {

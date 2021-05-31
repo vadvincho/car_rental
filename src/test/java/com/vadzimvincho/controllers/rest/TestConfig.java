@@ -1,4 +1,4 @@
-package com.vinchovadzim.controller;
+package com.vadzimvincho.controllers.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -17,5 +17,4 @@ public class TestConfig {
     public MockMvc mockMvc() {
         return MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
     }
-
 }
