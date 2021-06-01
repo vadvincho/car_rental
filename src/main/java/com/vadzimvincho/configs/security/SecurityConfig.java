@@ -3,6 +3,7 @@ package com.vadzimvincho.configs.security;
 import com.vadzimvincho.configs.security.jwt.JwtFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -30,6 +31,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/admin/*").hasRole("ADMIN")
                 .antMatchers("/user/*").hasRole("USER")
                 .antMatchers("/register", "/auth", "/register-user", "/login", "/", "/logout").permitAll()
+                .antMatchers(HttpMethod.POST, "/cars").hasRole("ADMIN")
+                .antMatchers(HttpMethod.DELETE, "/cars/*").hasRole("ADMIN")
+                .antMatchers(HttpMethod.PATCH, "/cars").hasRole("ADMIN")
+                .antMatchers("/carsModels/*").hasRole("ADMIN")
+                .antMatchers("/orders/*").hasRole("ADMIN")
                 .and()
                 .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
     }
