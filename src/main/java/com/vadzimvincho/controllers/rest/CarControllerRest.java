@@ -1,24 +1,17 @@
 package com.vadzimvincho.controllers.rest;
 
 import com.vadzimvincho.exceptions.DaoException;
+import com.vadzimvincho.exceptions.Message;
+import com.vadzimvincho.models.dto.CarDto;
 import com.vadzimvincho.models.entity.Car;
 import com.vadzimvincho.models.entity.CarStatus;
-import com.vadzimvincho.models.dto.CarDto;
 import com.vadzimvincho.services.api.CarService;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PatchMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -37,15 +30,15 @@ public class CarControllerRest {
     }
 
     @PostMapping
-    public ResponseEntity<HttpStatus> add(@RequestBody CarDto carDto) throws DaoException {
+    public ResponseEntity<?> add(@RequestBody CarDto carDto) throws DaoException {
         carService.add(modelMapper.map(carDto, Car.class));
-        return ResponseEntity.ok(HttpStatus.OK);
+        return ResponseEntity.ok(new Message("Car created"));
     }
 
     @DeleteMapping(value = "/{id}")
-    public ResponseEntity<HttpStatus> remove(@PathVariable("id") Long id) throws DaoException {
+    public ResponseEntity<?> remove(@PathVariable("id") Long id) throws DaoException {
         carService.remove(carService.getById(id));
-        return ResponseEntity.ok(HttpStatus.OK);
+        return ResponseEntity.ok(new Message("Car deleted"));
     }
 
     @GetMapping
@@ -59,9 +52,9 @@ public class CarControllerRest {
     }
 
     @PatchMapping
-    public ResponseEntity<HttpStatus> update(@RequestBody CarDto carDto) throws DaoException {
+    public ResponseEntity<?> update(@RequestBody CarDto carDto) throws DaoException {
         carService.update(modelMapper.map(carDto, Car.class));
-        return ResponseEntity.ok(HttpStatus.OK);
+        return ResponseEntity.ok(new Message("Car updated"));
     }
 
     @GetMapping(value = "/model/{id}")
