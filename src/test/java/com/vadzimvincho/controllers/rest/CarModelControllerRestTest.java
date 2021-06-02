@@ -3,12 +3,9 @@ package com.vadzimvincho.controllers.rest;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.vadzimvincho.configs.WebConfig;
-import com.vadzimvincho.models.dto.CustomerBalanceDto;
-import com.vadzimvincho.models.dto.CustomerDto;
-import com.vadzimvincho.models.entity.AppUser;
-import com.vadzimvincho.models.entity.Customer;
-import com.vadzimvincho.services.api.CustomerService;
-import com.vadzimvincho.services.api.UserService;
+import com.vadzimvincho.models.dto.CarModelDto;
+import com.vadzimvincho.models.entity.CarModel;
+import com.vadzimvincho.services.api.CarModelService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.modelmapper.ModelMapper;
@@ -29,11 +26,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @RunWith(SpringRunner.class)
 @Transactional
 @ContextConfiguration(classes = {WebConfig.class})
-public class CustomerControllerRestTest {
+public class CarModelControllerRestTest {
     @Autowired
-    UserService userService;
-    @Autowired
-    CustomerService customerService;
+    CarModelService carModelService;
     @Autowired
     private MockMvc mockMvc;
     @Autowired
@@ -48,93 +43,76 @@ public class CustomerControllerRestTest {
     public void getAll() throws Exception {
         mockMvc.perform(
                 MockMvcRequestBuilders
-                        .get("/customers")
+                        .get("/carModels")
                         .accept(MediaType.APPLICATION_JSON)
         ).andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.[0].name")
-                        .value("customer1"))
+                        .value("FOCUS"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.[1].name")
-                        .value("customer2"))
+                        .value("A6"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.[2].name")
-                        .value("customer3"))
+                        .value("GOLF"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.[3].name")
-                        .value("customer4"));
+                        .value("PASSAT"));
     }
 
     @Test
     public void getById() throws Exception {
         mockMvc.perform(
                 MockMvcRequestBuilders
-                        .get("/customers/1")
+                        .get("/carModels/1")
                         .accept(MediaType.APPLICATION_JSON)
         ).andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.name")
-                        .value("customer1"))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.phoneNumber")
-                        .value("+375285554556"));
+                .andExpect(MockMvcResultMatchers.jsonPath("$.id")
+                        .value("FOCUS"));
     }
 
     @Test
     public void add() throws Exception {
-        AppUser user = userService.getById(2L);
-        Customer customer = new Customer();
-        customer.setName("New customer");
-        customer.setPhoneNumber("+1111111111");
-        customer.setUser(user);
+        CarModel carModel = new CarModel();
+        carModel.setCarMake("test make");
+        carModel.setName("test name");
+        carModel.setYear(2001L);
+
         mockMvc.perform(
                 MockMvcRequestBuilders
-                        .post("/customers")
+                        .post("/carModels")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content(objToJson(modelMapper.map(customer, CustomerDto.class)))
+                        .content(objToJson(modelMapper.map(carModel, CarModelDto.class)))
                         .accept(MediaType.APPLICATION_JSON)
         ).andDo(print())
                 .andExpect(status().isOk());
-        assert customerService.getAll().size() == 5;
-        assert customerService.getById(5L).getName().equals("New customer");
-        assert customerService.getById(5L).getPhoneNumber().equals("+1111111111");
+        System.out.println(carModelService.getAll().size());
+        assert carModelService.getAll().size() == 7;
+        assert carModelService.getById(5L).getName().equals("test name");
     }
 
     @Test
     public void remove() throws Exception {
         mockMvc.perform(
                 MockMvcRequestBuilders
-                        .delete("/customers/2")
+                        .delete("/carModels/2")
                         .accept(MediaType.APPLICATION_JSON)
         ).andDo(print())
                 .andExpect(status().isOk());
-        assert customerService.getAll().size() == 3;
+        System.out.println(carModelService.getAll().size());
+        assert carModelService.getAll().size() == 5;
     }
 
     @Test
     public void update() throws Exception {
-        Customer customer = customerService.getById(1L);
-        customer.setName("New name");
+        CarModel carModel = carModelService.getById(1L);
+        carModel.setName("New name");
         mockMvc.perform(
                 MockMvcRequestBuilders
-                        .patch("/customers")
+                        .patch("/carModels")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content(objToJson(modelMapper.map(customer, CustomerDto.class)))
+                        .content(objToJson(modelMapper.map(carModel, CarModelDto.class)))
                         .accept(MediaType.APPLICATION_JSON)
         ).andDo(print())
                 .andExpect(status().isOk());
-        assert customerService.getById(1L).getName().equals("New name");
-        assert customerService.getById(1L).getPhoneNumber().equals("+375285554556");
-    }
-
-    @Test
-    public void testTopUpBalance() throws Exception {
-        CustomerBalanceDto balanceDto = new CustomerBalanceDto();
-        balanceDto.setMoney(500d);
-        mockMvc.perform(
-                MockMvcRequestBuilders
-                        .post("/customers/top-up-balance/1")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(objToJson(balanceDto))
-                        .accept(MediaType.APPLICATION_JSON)
-        ).andDo(print())
-                .andExpect(status().isOk());
-        assert (Math.abs(customerService.getById(1L).getBalance()) - 2000) <= 0.000001;
+        assert carModelService.getById(1L).getName().equals("New name");
     }
 }

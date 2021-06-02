@@ -1,6 +1,7 @@
 package com.vadzimvincho.controllers.rest;
 
 import com.vadzimvincho.exceptions.DaoException;
+import com.vadzimvincho.exceptions.Message;
 import com.vadzimvincho.models.dto.CarModelDto;
 import com.vadzimvincho.models.entity.CarModel;
 
@@ -30,15 +31,15 @@ public class CarModelControllerRest {
     }
 
     @PostMapping
-    public ResponseEntity<HttpStatus> add(@RequestBody CarModelDto carModelDto) throws DaoException {
+    public ResponseEntity<?> add(@RequestBody CarModelDto carModelDto) throws DaoException {
         carModelService.add(modelMapper.map(carModelDto, CarModel.class));
-        return ResponseEntity.ok(HttpStatus.OK);
+        return ResponseEntity.ok(new Message("Car model created"));
     }
 
     @DeleteMapping(value = "/{id}")
-    public ResponseEntity<HttpStatus> remove(@PathVariable("id") Long id) throws DaoException {
+    public ResponseEntity<?> remove(@PathVariable("id") Long id) throws DaoException {
         carModelService.remove(carModelService.getById(id));
-        return ResponseEntity.ok(HttpStatus.OK);
+        return ResponseEntity.ok(new Message("Car model created"));
     }
 
     @GetMapping
@@ -52,14 +53,9 @@ public class CarModelControllerRest {
     }
 
     @PatchMapping
-    public ResponseEntity<HttpStatus> update(@RequestBody CarModelDto carModelDto) throws DaoException {
+    public ResponseEntity<?> update(@RequestBody CarModelDto carModelDto) throws DaoException {
         carModelService.update(modelMapper.map(carModelDto, CarModel.class));
-        return ResponseEntity.ok(HttpStatus.OK);
-    }
-
-    @GetMapping(value = "/make/{id}")
-    public List<CarModelDto> getByModel(@PathVariable("id") Long id) throws DaoException {
-        return getCarModelDto(carModelService.getByCarMake(id));
+        return ResponseEntity.ok(new Message("Car model created"));
     }
 
     private List<CarModelDto> getCarModelDto(List<CarModel> allCarModels) {
