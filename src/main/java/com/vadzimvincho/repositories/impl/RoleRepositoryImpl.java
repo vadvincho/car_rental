@@ -9,6 +9,10 @@ import java.util.List;
 
 @Repository
 public class RoleRepositoryImpl extends GenericRepositoryImpl<Role> implements RoleRepository {
+    public RoleRepositoryImpl() {
+        setTClassName(Role.class);
+    }
+
     @Override
     public Role findByName(String name) {
         Query query = entityManager.createQuery("SELECT r FROM Role as r WHERE r.name = :roleName");
