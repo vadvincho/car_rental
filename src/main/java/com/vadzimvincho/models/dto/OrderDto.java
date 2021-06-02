@@ -12,7 +12,6 @@ public class OrderDto extends BaseEntityDto {
     private LocalDate endTime;
     private double price;
     private String info;
-    private CarDamageDto carDamage;
 
     public OrderDto() {
     }
@@ -71,13 +70,5 @@ public class OrderDto extends BaseEntityDto {
 
     public void setInfo(String info) {
         this.info = info;
-    }
-
-    public CarDamageDto getCarDamage() {
-        return carDamage;
-    }
-
-    public void setCarDamage(CarDamageDto carDamage) {
-        this.carDamage = carDamage;
     }
 }

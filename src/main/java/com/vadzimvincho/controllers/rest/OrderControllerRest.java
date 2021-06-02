@@ -1,17 +1,15 @@
 package com.vadzimvincho.controllers.rest;
 
-import com.vadzimvincho.exceptions.CarStatusException;
 import com.vadzimvincho.exceptions.DaoException;
-import com.vadzimvincho.exceptions.ResponseMessage;
+import com.vadzimvincho.exceptions.Message;
+import com.vadzimvincho.models.dto.CarDamageDto;
 import com.vadzimvincho.models.dto.OrderDto;
 import com.vadzimvincho.models.entity.Order;
-import com.vadzimvincho.services.api.CustomerService;
 import com.vadzimvincho.services.api.OrderService;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -32,15 +30,33 @@ public class OrderControllerRest {
     }
 
     @PostMapping
-    public ResponseEntity add(@RequestBody OrderDto orderDto) throws DaoException {
+    public ResponseEntity<?> create(@RequestBody OrderDto orderDto) throws DaoException {
         orderService.create(modelMapper.map(orderDto, Order.class));
-        return ResponseEntity.ok(new ResponseMessage("Order created"));
+        return ResponseEntity.ok(new Message("Order created"));
     }
 
     @DeleteMapping(value = "/{id}")
-    public ResponseEntity<HttpStatus> remove(@PathVariable("id") Long id) throws DaoException {
+    public ResponseEntity<?> remove(@PathVariable("id") Long id) throws DaoException {
         orderService.remove(orderService.getById(id));
-        return ResponseEntity.ok(HttpStatus.OK);
+        return ResponseEntity.ok(new Message("Order deleted"));
+    }
+
+    @PostMapping(value = "/cancel/{id}")
+    public ResponseEntity<?> cancel(@PathVariable("id") Long id, @RequestBody Message message) throws DaoException {
+        orderService.cancel(orderService.getById(id), message);
+        return ResponseEntity.ok(new Message("Order canceled"));
+    }
+
+    @PostMapping(value = "/confirm/{id}")
+    public ResponseEntity<?> confirm(@PathVariable("id") Long id) throws DaoException {
+        orderService.confirm(orderService.getById(id));
+        return ResponseEntity.ok(new Message("Order confirmed"));
+    }
+
+    @PostMapping(value = "/complete/{id}")
+    public ResponseEntity<?> complete(@PathVariable("id") Long id,@RequestBody CarDamageDto carDamageDto) throws DaoException {
+        orderService.complete(orderService.getById(id), carDamageDto);
+        return ResponseEntity.ok(new Message("Order completed"));
     }
 
     @GetMapping
@@ -54,18 +70,10 @@ public class OrderControllerRest {
     }
 
     @PatchMapping
-    public ResponseEntity<HttpStatus> update(@RequestBody OrderDto orderDto) throws DaoException {
+    public ResponseEntity<?> update(@RequestBody OrderDto orderDto) throws DaoException {
         orderService.update(modelMapper.map(orderDto, Order.class));
-        return ResponseEntity.ok(HttpStatus.OK);
+        return ResponseEntity.ok(new Message("Order updated"));
     }
-
-
-
-//    @PostMapping(value="/pay-for-order")
-//    public ResponseEntity<HttpStatus> payForOrder(@RequestBody Long orderId) throws DaoException {
-//        orderService.payForOrder(orderId);
-//        return ResponseEntity.ok(HttpStatus.OK);
-//    }
 
     private List<OrderDto> getOrderDto(List<Order> allOrders) {
         return allOrders.stream()

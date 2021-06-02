@@ -28,9 +28,6 @@ public class Order extends BaseEntity {
     private double price;
     @Column(name = "info")
     private String info;
-    @OneToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
-    @JoinColumn(name = "car_damage_id")
-    private CarDamage carDamage;
 
     public Car getCar() {
         return car;
@@ -86,14 +83,6 @@ public class Order extends BaseEntity {
 
     public void setInfo(String info) {
         this.info = info;
-    }
-
-    public CarDamage getCarDamage() {
-        return carDamage;
-    }
-
-    public void setCarDamage(CarDamage carDamage) {
-        this.carDamage = carDamage;
     }
 
     @Override
