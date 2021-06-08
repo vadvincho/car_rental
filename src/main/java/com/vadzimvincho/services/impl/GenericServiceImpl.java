@@ -1,8 +1,8 @@
 package com.vadzimvincho.services.impl;
 
+import com.vadzimvincho.exceptions.DaoException;
 import com.vadzimvincho.models.entity.BaseEntity;
 import com.vadzimvincho.repositories.api.GenericRepository;
-import com.vadzimvincho.exceptions.DaoException;
 import com.vadzimvincho.services.api.GenericService;
 import org.slf4j.Logger;
 import org.springframework.transaction.annotation.Transactional;
@@ -84,7 +84,7 @@ public class GenericServiceImpl<T extends BaseEntity, R extends GenericRepositor
         }
     }
 
-    private T patch(T tPatch) throws DaoException {
+    private T patch(T tPatch) {
         T t = (T) ownRepository.getById(tPatch.getId());
         ReflectionUtils.doWithFields(tPatch.getClass(), tPatchField -> {
             ReflectionUtils.makeAccessible(tPatchField);
