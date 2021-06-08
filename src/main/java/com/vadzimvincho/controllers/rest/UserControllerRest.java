@@ -29,7 +29,7 @@ public class UserControllerRest {
     }
 
     @PostMapping
-    public ResponseEntity add(@RequestBody AppUserDto appUserDto) throws DaoException {
+    public ResponseEntity<?> add(@RequestBody AppUserDto appUserDto) throws DaoException {
         if (userService.findByLogin(appUserDto.getLogin()) != null) {
             return ResponseEntity
                     .badRequest()
@@ -41,7 +41,7 @@ public class UserControllerRest {
     }
 
     @DeleteMapping(value = "/{id}")
-    public ResponseEntity remove(@PathVariable("id") Long id) throws DaoException {
+    public ResponseEntity<?> remove(@PathVariable("id") Long id) throws DaoException {
         AppUser appUser = userService.getById(id);
         userService.remove(appUser);
         return ResponseEntity.ok("User " + appUser.getLogin() + " deleted");
@@ -63,7 +63,7 @@ public class UserControllerRest {
     }
 
     @PatchMapping
-    public ResponseEntity update(@RequestBody AppUserDto appUserDto) throws DaoException {
+    public ResponseEntity<?> update(@RequestBody AppUserDto appUserDto) throws DaoException {
         userService.update(modelMapper.map(appUserDto, AppUser.class));
         return ResponseEntity.ok(new Message("User " + appUserDto.getLogin() + " updated"));
     }
