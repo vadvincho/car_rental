@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org/"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <html lang="en">
 <head>
@@ -22,8 +23,6 @@
                 Role: <span sec:authentication="principal.authorities"></span>
             </span>
             <button class="btn btn-logout" sec:authorize="isAuthenticated()">Logout</button>
-            <button class="btn btn-logout" sec:authorize="hasRole('USER')">TEST</button>
-
         </h3>
     </header>
 
@@ -33,15 +32,14 @@
     </div>
 
     <div class="tabset" sec:authorize="isAuthenticated()">
-        <!-- Tab 1 -->
         <input class="input input-profile" type="radio" name="tabset" id="tab1" aria-controls="sect-profile">
         <label for="tab1">Profile</label>
-        <!-- Tab 2 -->
         <input class="input input-cars" type="radio" name="tabset" id="tab2" aria-controls="sect-cars">
         <label for="tab2">Cars</label>
-        <!-- Tab 3 -->
-        <input class="input input-orders" type="radio" name="tabset" id="tab3" aria-controls="sect-orders">
-        <label for="tab3">Orders</label>
+        <input sec:authorize="hasRole('USER')" class="input input-orders" type="radio" name="tabset" id="tab3" aria-controls="sect-orders">
+        <label for="tab3" sec:authorize="hasRole('USER')">Orders</label>
+        <input sec:authorize="hasRole('ADMIN')" class="input input-orders-admin" type="radio" name="tabset" id="tab4" aria-controls="sect-orders">
+        <label for="tab4" sec:authorize="hasRole('ADMIN')">Orders Admin</label>
 
         <div class="tab-panels">
             <section id="sect-profile" class="tab-panel tp-profile">
@@ -52,32 +50,34 @@
                         <input type="text" name="login" disabled="disabled">
                         <h6>Email</h6>
                         <input type="email" name="email" disabled="disabled">
+                        <h6 sec:authorize="hasRole('USER')">Name</h6>
+                        <input sec:authorize="hasRole('USER')" type="text" name="name" disabled="disabled">
+                        <h6 sec:authorize="hasRole('USER')">Phone number</h6>
+                        <input sec:authorize="hasRole('USER')" type="text" name="phoneNumber" disabled="disabled">
+                        <h6 sec:authorize="hasRole('USER')">Passport</h6>
+                        <input sec:authorize="hasRole('USER')" type="text" name="passport" disabled="disabled">
+                        <h6 sec:authorize="hasRole('USER')">Balance</h6>
+                        <input sec:authorize="hasRole('USER')" type="text" name="balance" disabled="disabled">
                         <h6>Role</h6>
                         <input type="text" name="role" disabled="disabled">
                         <input type="button" class="btn btn-edit" value="Edit">
                         <input type="button" class="btn btn-save-change" value="Save" hidden="hidden">
+                        <input sec:authorize="hasRole('USER')" type="button" class="btn btn-top-balance" value="Top balance">
                     </form>
                 </div>
             </section>
             <section id="sect-cars" class="tab-panel tp-cars">
-                <h2>Orders</h2>
+                <h2>Cars</h2>
                 <div class="table-wrapper">
                     <table class="table table-cars">
-                        <tr>
-                            <th>Car Id</th>
-                            <th>Make</th>
-                            <th>Model</th>
-                            <th>Status</th>
-                            <th>Action</th>
-                        </tr>
+
                     </table>
-                    <button class="btn btn-get-available">Cars</button>
+                    <button class="btn btn-get-available">Available</button>
                     <button class="btn btn-get-all">Get all</button>
                 </div>
             </section>
-            <section id="sect-orders" class="tab-panel tp-orders">
+            <section sec:authorize="hasRole('USER')" id="sect-orders" class="tab-panel tp-orders">
                 <h2>Orders</h2>
-
                 <div class="modal-body">
                     <form class="select-form">
                         <h6>Select car</h6>
@@ -92,6 +92,14 @@
                         <input class="input-end-date" onClick="xCal(this)" onKeyUp="xCal()">
                     </form>
                     <button class="btn btn-order-submit">Submit</button>
+                </div>
+            </section>
+            <section sec:authorize="hasRole('ADMIN')" id="sect-orders-admin" class="tab-panel tp-orders-admin">
+                <h2>Orders Admin</h2>
+                <div class="table-wrapper">
+                    <table class="table table-orders">
+
+                    </table>
                 </div>
             </section>
         </div>
@@ -127,6 +135,47 @@
         </div>
     </div>
 
+    <!-- cancel order Modal -->
+    <div class="order-cancel-modal modal-wrapper">
+        <div class="modal">
+            <div class="modal-header"><h3>Input cause of cancel</h3></div>
+            <div class="modal-body">
+                <form class="form" autocomplete="off">
+                    <input class="cancel-info" type="text" name="info" placeholder="Input cause of cancel">
+                    <button class="btn btn-modal">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- complete order Modal -->
+    <div class="order-complete-modal modal-wrapper">
+        <div class="modal">
+            <div class="modal-header"><h3>Input damage info </h3></div>
+            <div class="modal-body">
+                <form class="form" autocomplete="off">
+                    <input class="damage-info" type="text" name="info" placeholder="Input damage info">
+                    <input class="price" type="text" name="info" placeholder="Input price">
+                    <button class="btn btn-modal">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- top balance customer Modal -->
+    <div class="top-balance-modal modal-wrapper">
+        <div class="modal">
+            <div class="modal-header"><h3>Top up balance </h3></div>
+            <div class="modal-body">
+                <form class="form" autocomplete="off">
+                    <input class="card" type="text" name="info" placeholder="Input card">
+                    <input class="balance-price" type="text" name="info" placeholder="Input price">
+                    <button class="btn btn-modal">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <!-- edit car Modal -->
     <div class="edit-car-modal modal-wrapper">
         <div class="modal">
@@ -145,12 +194,3 @@
 <script src="/scripts/index.js"></script>
 </body>
 </html>
-
-
-<!--<nav class="nav nav">-->
-<!--    <ul>-->
-<!--        <li class="ui ui-home" sec:authorize="!isAuthenticated()"><a>Register</a></li>-->
-<!--        <li class="ui ui-home" sec:authorize="!isAuthenticated()"><a>Login</a></li>-->
-<!--        <li class="ui ui-home" sec:authorize="isAuthenticated()"><a>Logout</a></li>-->
-<!--    </ul>-->
-<!--</nav>-->
