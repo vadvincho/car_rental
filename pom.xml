@@ -83,6 +83,12 @@
 			<artifactId>spring-security-taglibs</artifactId>
 			<version>5.2.6.RELEASE</version>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>5.2.6.RELEASE</version>
+			<scope>test</scope>
+		</dependency>
 
 		<dependency>
 			<groupId>javax.persistence</groupId>
@@ -106,19 +112,11 @@
 			<artifactId>jackson-databind</artifactId>
 			<version>2.12.2</version>
 		</dependency>
-
 		<dependency>
 			<groupId>com.fasterxml.jackson.datatype</groupId>
 			<artifactId>jackson-datatype-jsr310</artifactId>
 			<version>2.12.2</version>
 		</dependency>
-<!--		<dependency>-->
-<!--			<groupId>com.fasterxml.jackson.module</groupId>-->
-<!--			<artifactId>jackson-modules-java8</artifactId>-->
-<!--			<version>2.12.2</version>-->
-<!--			<type>pom</type>-->
-<!--			<scope>runtime</scope>-->
-<!--		</dependency>-->
 
 		<dependency>
 			<groupId>io.jsonwebtoken</groupId>
@@ -148,15 +146,11 @@
 <!--		</dependency>-->
 
 		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<version>1.18.10</version>
+			<groupId>org.modelmapper</groupId>
+			<artifactId>modelmapper</artifactId>
+			<version>2.4.4</version>
 		</dependency>
-        <dependency>
-            <groupId>org.modelmapper</groupId>
-            <artifactId>modelmapper</artifactId>
-            <version>2.3.7</version>
-        </dependency>
+
 
 		<!-- logger -->
 		<dependency>
@@ -201,7 +195,24 @@
 			<artifactId>thymeleaf-spring5</artifactId>
 			<version>3.0.12.RELEASE</version>
 		</dependency>
-
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.13</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<version>1.4.200</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.jayway.jsonpath</groupId>
+			<artifactId>json-path</artifactId>
+			<version>2.2.0</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 
 	<build>

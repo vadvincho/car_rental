@@ -1,5 +1,7 @@
 package com.vadzimvincho.models.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,6 +12,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "customer")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Customer extends BaseEntity {
     @Column(name = "name")
     private String name;
@@ -58,13 +61,14 @@ public class Customer extends BaseEntity {
         this.user = user;
     }
 
-    public double getBalance() {
+    public Double getBalance() {
         return balance;
     }
 
-    public void setBalance(double balance) {
+    public void setBalance(Double balance) {
         this.balance = balance;
     }
+
     @Override
     public String toString() {
         return "Customer{" +
