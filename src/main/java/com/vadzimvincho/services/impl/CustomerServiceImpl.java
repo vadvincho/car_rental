@@ -1,10 +1,8 @@
 package com.vadzimvincho.services.impl;
 
 import com.vadzimvincho.models.dto.CustomerBalanceDto;
+import com.vadzimvincho.models.entity.AppUser;
 import com.vadzimvincho.models.entity.Customer;
-import com.vadzimvincho.models.entity.Order;
-import com.vadzimvincho.models.entity.OrderStatus;
-import com.vadzimvincho.models.enums.EnumOrderStatus;
 import com.vadzimvincho.repositories.api.CustomerRepository;
 import com.vadzimvincho.repositories.api.OrderRepository;
 import com.vadzimvincho.repositories.api.OrderStatusRepository;
@@ -27,10 +25,14 @@ public class CustomerServiceImpl extends GenericServiceImpl<Customer, CustomerRe
     }
 
     @Override
-    public void topUpBalance(CustomerBalanceDto money) {
-        Customer customer = ownRepository.getById(money.getId());
+    public void topUpBalance(Customer customer, CustomerBalanceDto money) {
         Double newBalance = customer.getBalance() + money.getMoney();
         customer.setBalance(newBalance);
         ownRepository.update(customer);
+    }
+
+    @Override
+    public Customer getCustomerByUser(AppUser user) {
+        return ownRepository.getByUser(user);
     }
 }
