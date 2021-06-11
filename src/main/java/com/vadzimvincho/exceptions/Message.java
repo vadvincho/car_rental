@@ -1,9 +1,12 @@
 package com.vadzimvincho.exceptions;
 
-public class ResponseMessage {
+public class Message {
     private String message;
 
-    public ResponseMessage(String message) {
+    public Message() {
+    }
+
+    public Message(String message) {
         this.message = message;
     }
 
