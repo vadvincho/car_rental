@@ -8,6 +8,7 @@ import com.vadzimvincho.models.entity.Car;
 import com.vadzimvincho.models.entity.CarModel;
 import com.vadzimvincho.services.api.CarModelService;
 import com.vadzimvincho.services.api.CarService;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.modelmapper.ModelMapper;
@@ -89,8 +90,8 @@ public class CarControllerRestTest {
                         .accept(MediaType.APPLICATION_JSON)
         ).andDo(print())
                 .andExpect(status().isOk());
-        assert carService.getAll().size() == 7;
-        assert carService.getById(7L).getCarModel().getName().equals("A6");
+        Assert.assertEquals(7, carService.getAll().size());
+        Assert.assertEquals("A6",carService.getById(7L).getCarModel().getName());
     }
 
     @Test
@@ -101,7 +102,7 @@ public class CarControllerRestTest {
                         .accept(MediaType.APPLICATION_JSON)
         ).andDo(print())
                 .andExpect(status().isOk());
-        assert carService.getAll().size() == 5;
+        Assert.assertEquals(5,carService.getAll().size());
     }
 
     @Test
@@ -116,6 +117,6 @@ public class CarControllerRestTest {
                         .accept(MediaType.APPLICATION_JSON)
         ).andDo(print())
                 .andExpect(status().isOk());
-        assert carService.getById(1L).getTotalMileage() == 20000;
+        Assert.assertEquals(20000,carService.getById(1L).getTotalMileage());
     }
 }
