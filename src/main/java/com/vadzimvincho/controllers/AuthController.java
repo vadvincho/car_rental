@@ -60,7 +60,7 @@ public class AuthController {
 
     @GetMapping
     public String getIndexPage() {
-        return "index";
+        return "users_angular";
     }
 
 //    @GetMapping("/logout2")
