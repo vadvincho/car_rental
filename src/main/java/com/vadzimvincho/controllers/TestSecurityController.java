@@ -14,13 +14,13 @@ public class TestSecurityController {
 
     @GetMapping("/admin/get")
     public String getAdmin() {
-        LOGGER.info("Доступен только админу");
+        LOGGER.info("Доступен только админу!");
         return "Hi admin";
     }
 
     @GetMapping("/user/get")
     public String getUser() {
-        LOGGER.info("Доступен только юзеру");
+        LOGGER.info("Доступен только юзеру!");
         return "Hi user";
     }
 }
