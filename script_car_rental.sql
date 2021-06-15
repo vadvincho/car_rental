@@ -76,7 +76,7 @@ CREATE TABLE IF NOT EXISTS rental_order (
 	start_time 		DATE NOT NULL,
 	end_time 		DATE NOT NULL,
 	price 			DOUBLE,
-	info 			VARCHAR(200),
+	info 			VARCHAR(250),
     FOREIGN KEY (car_id) REFERENCES car (id)
 		ON DELETE CASCADE
 		ON UPDATE CASCADE,

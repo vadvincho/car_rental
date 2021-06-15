@@ -6,7 +6,7 @@ INSERT INTO role (name) VALUE ('ROLE_USER');
 INSERT INTO user (login, password, email, role_id)
 VALUES ('admin', '$2a$10$YBEC9x5LP5Li1kPtzb8/pO.aHQyrBqPFgs.NbU./iTYSSwFEjtpm2', 'admin@mail.com', 1);
 INSERT INTO user (login, password, email, role_id)
-VALUES ('vad', '$2a$10$YBEC9x5LP5Li1kPtzb8/pO.aHQyrBqPFgs.NbU./iTYSSwFEjtpm2','vad@mail.com', 2);
+VALUES ('vadzim', '$2a$10$YBEC9x5LP5Li1kPtzb8/pO.aHQyrBqPFgs.NbU./iTYSSwFEjtpm2','vad@mail.com', 2);
 INSERT INTO user (login, password, email, role_id)
 VALUES ('alex', '$2a$10$YBEC9x5LP5Li1kPtzb8/pO.aHQyrBqPFgs.NbU./iTYSSwFEjtpm2',NULL, 2);
 
