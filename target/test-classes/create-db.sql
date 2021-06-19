@@ -151,3 +151,5 @@ INSERT INTO rental_order (car_id, customer_id, order_status_id, start_time, end_
 VALUES (1, 2, 3, '2021-05-01', '2021-05-05', 750, '');
 INSERT INTO rental_order (car_id, customer_id, order_status_id, start_time, end_time, price, info)
 VALUES (3, 3, 1, '2021-05-07', '2021-05-17', 200, '');
+INSERT INTO rental_order (car_id, customer_id, order_status_id, start_time, end_time, price, info)
+VALUES (2, 1, 5, '2021-05-07', '2021-05-17', 200, '');
