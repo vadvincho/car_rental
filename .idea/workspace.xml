@@ -10,13 +10,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="50d2e98e-db5f-4a68-ac58-967e75e4e159" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/log.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/vadzimvincho/controllers/rest/CarControllerRestTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/vadzimvincho/controllers/rest/CarModelControllerRestTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/vadzimvincho/controllers/rest/CustomerControllerRestTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/vadzimvincho/controllers/rest/OrderControllerRestTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/vadzimvincho/controllers/rest/TestConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/vadzimvincho/controllers/rest/UserControllerRestTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/artifacts/car_rental_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/car_rental_war_exploded.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
@@ -24,154 +17,58 @@
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/f23af8a9-daa3-4cb7-8533-372bcab113e7/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/f23af8a9-daa3-4cb7-8533-372bcab113e7/storage_v2/_src_/schema/mysql.osA4Bg.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/f23af8a9-daa3-4cb7-8533-372bcab113e7/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_xml_bind_jaxb_api_2_3_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_modelmapper_modelmapper_2_3_7.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_projectlombok_lombok_1_18_10.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_jpa_2_2_3_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_5_2_6_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_5_2_6_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jcl_5_2_6_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jdbc_5_2_6_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_5_2_6_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/car-rental.iml" beforeDir="false" afterPath="$PROJECT_DIR$/car-rental.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/car_renetal.mwb" beforeDir="false" afterPath="$PROJECT_DIR$/car_renetal.mwb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/script_car_rental.sql" beforeDir="false" afterPath="$PROJECT_DIR$/script_car_rental.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/script_car_rental_fill.sql" beforeDir="false" afterPath="$PROJECT_DIR$/script_car_rental_fill.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vadzimvincho/configs/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vadzimvincho/configs/security/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vadzimvincho/controllers/rest/AuthControllerRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vadzimvincho/controllers/rest/AuthControllerRest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vadzimvincho/controllers/rest/CarMakeControllerRest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vadzimvincho/controllers/rest/CarModelControllerRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vadzimvincho/controllers/rest/CarModelControllerRest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vadzimvincho/controllers/rest/CustomerControllerRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vadzimvincho/controllers/rest/CustomerControllerRest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vadzimvincho/controllers/rest/OrderControllerRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vadzimvincho/controllers/rest/OrderControllerRest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vadzimvincho/controllers/rest/UserControllerRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vadzimvincho/controllers/rest/UserControllerRest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vadzimvincho/exceptions/ResponseMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vadzimvincho/exceptions/Message.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vadzimvincho/models/dto/AuthResponseDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vadzimvincho/models/dto/AuthResponseDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vadzimvincho/models/dto/CarDamageDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vadzimvincho/models/dto/CarDamageDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vadzimvincho/models/dto/CarMakeDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vadzimvincho/models/dto/CarModelDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vadzimvincho/models/dto/CarModelDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vadzimvincho/models/dto/ManagerDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vadzimvincho/models/dto/OrderDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vadzimvincho/models/dto/OrderDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vadzimvincho/models/dto/RegistrationRequestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vadzimvincho/models/dto/RegistrationRequestDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vadzimvincho/models/entity/CarDamage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vadzimvincho/models/entity/CarMake.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vadzimvincho/models/entity/CarModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vadzimvincho/models/entity/CarModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vadzimvincho/models/entity/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vadzimvincho/models/entity/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vadzimvincho/models/entity/Manager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vadzimvincho/models/entity/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vadzimvincho/models/entity/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vadzimvincho/models/entity/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vadzimvincho/models/entity/Role.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vadzimvincho/models/enums/EnumOrderStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vadzimvincho/models/enums/EnumOrderStatus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vadzimvincho/repositories/api/CarMakeRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vadzimvincho/repositories/api/CarModelRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vadzimvincho/repositories/api/CarModelRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vadzimvincho/repositories/api/ManagerRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vadzimvincho/repositories/impl/CarMakeRepositoryImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vadzimvincho/repositories/impl/CarModelRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vadzimvincho/repositories/impl/CarModelRepositoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vadzimvincho/repositories/impl/GenericRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vadzimvincho/repositories/impl/GenericRepositoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vadzimvincho/repositories/impl/ManagerRepositoryImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vadzimvincho/repositories/impl/RoleRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vadzimvincho/repositories/impl/RoleRepositoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vadzimvincho/services/api/CarMakeService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vadzimvincho/services/api/CarModelService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vadzimvincho/services/api/CarModelService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vadzimvincho/services/api/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vadzimvincho/services/api/CustomerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vadzimvincho/services/api/ManagerService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vadzimvincho/services/api/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vadzimvincho/services/api/OrderService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vadzimvincho/services/impl/CarMakeServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vadzimvincho/services/impl/CarModelServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vadzimvincho/services/impl/CarModelServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vadzimvincho/services/impl/CustomerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vadzimvincho/services/impl/CustomerServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vadzimvincho/services/impl/GenericServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vadzimvincho/services/impl/GenericServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vadzimvincho/services/impl/ManagerServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vadzimvincho/services/impl/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vadzimvincho/services/impl/OrderServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/!!!!!log4j2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/!!!!!!!!!index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/cars.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/customer-list.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/index.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/login.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/main.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/registration-form.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/scripts/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/scripts/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/car-rental-1.0-SNAPSHOT/WEB-INF/!!!!!!!!!index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/car-rental-1.0-SNAPSHOT/WEB-INF/classes/!!!!!log4j2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/car-rental-1.0-SNAPSHOT/WEB-INF/classes/com/vadzimvincho/configs/security/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/car-rental-1.0-SNAPSHOT/WEB-INF/classes/com/vadzimvincho/configs/security/SecurityConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/car-rental-1.0-SNAPSHOT/WEB-INF/classes/com/vadzimvincho/controllers/rest/AuthControllerRest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/car-rental-1.0-SNAPSHOT/WEB-INF/classes/com/vadzimvincho/controllers/rest/AuthControllerRest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/car-rental-1.0-SNAPSHOT/WEB-INF/classes/com/vadzimvincho/controllers/rest/CarMakeControllerRest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/car-rental-1.0-SNAPSHOT/WEB-INF/classes/com/vadzimvincho/controllers/rest/CarModelControllerRest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/car-rental-1.0-SNAPSHOT/WEB-INF/classes/com/vadzimvincho/controllers/rest/CarModelControllerRest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/car-rental-1.0-SNAPSHOT/WEB-INF/classes/com/vadzimvincho/controllers/rest/UserControllerRest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/car-rental-1.0-SNAPSHOT/WEB-INF/classes/com/vadzimvincho/controllers/rest/UserControllerRest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/car-rental-1.0-SNAPSHOT/WEB-INF/classes/com/vadzimvincho/models/dto/AuthResponseDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/car-rental-1.0-SNAPSHOT/WEB-INF/classes/com/vadzimvincho/models/dto/AuthResponseDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/car-rental-1.0-SNAPSHOT/WEB-INF/classes/com/vadzimvincho/models/dto/CarMakeDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log.log" beforeDir="false" afterPath="$PROJECT_DIR$/log.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/car-rental-1.0-SNAPSHOT/WEB-INF/classes/com/vadzimvincho/controllers/AuthController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/car-rental-1.0-SNAPSHOT/WEB-INF/classes/com/vadzimvincho/controllers/AuthController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/car-rental-1.0-SNAPSHOT/WEB-INF/classes/com/vadzimvincho/models/dto/CarModelDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/car-rental-1.0-SNAPSHOT/WEB-INF/classes/com/vadzimvincho/models/dto/CarModelDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/car-rental-1.0-SNAPSHOT/WEB-INF/classes/com/vadzimvincho/models/dto/RegistrationRequestDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/car-rental-1.0-SNAPSHOT/WEB-INF/classes/com/vadzimvincho/models/dto/RegistrationRequestDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/car-rental-1.0-SNAPSHOT/WEB-INF/classes/com/vadzimvincho/models/entity/CarDamage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/car-rental-1.0-SNAPSHOT/WEB-INF/classes/com/vadzimvincho/models/entity/CarMake.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/car-rental-1.0-SNAPSHOT/WEB-INF/classes/com/vadzimvincho/models/entity/CarModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/car-rental-1.0-SNAPSHOT/WEB-INF/classes/com/vadzimvincho/models/entity/CarModel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/car-rental-1.0-SNAPSHOT/WEB-INF/classes/com/vadzimvincho/models/entity/Customer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/car-rental-1.0-SNAPSHOT/WEB-INF/classes/com/vadzimvincho/models/entity/Customer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/car-rental-1.0-SNAPSHOT/WEB-INF/classes/com/vadzimvincho/models/entity/Manager.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/car-rental-1.0-SNAPSHOT/WEB-INF/classes/com/vadzimvincho/models/entity/Order.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/car-rental-1.0-SNAPSHOT/WEB-INF/classes/com/vadzimvincho/models/entity/Order.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/car-rental-1.0-SNAPSHOT/WEB-INF/classes/com/vadzimvincho/models/entity/Role.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/car-rental-1.0-SNAPSHOT/WEB-INF/classes/com/vadzimvincho/models/entity/Role.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/car-rental-1.0-SNAPSHOT/WEB-INF/classes/com/vadzimvincho/models/enums/EnumOrderStatus.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/car-rental-1.0-SNAPSHOT/WEB-INF/classes/com/vadzimvincho/models/enums/EnumOrderStatus.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/car-rental-1.0-SNAPSHOT/WEB-INF/classes/com/vadzimvincho/repositories/api/CarMakeRepository.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/car-rental-1.0-SNAPSHOT/WEB-INF/classes/com/vadzimvincho/repositories/api/CarModelRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/car-rental-1.0-SNAPSHOT/WEB-INF/classes/com/vadzimvincho/repositories/api/CarModelRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/car-rental-1.0-SNAPSHOT/WEB-INF/classes/com/vadzimvincho/repositories/impl/CarMakeRepositoryImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/car-rental-1.0-SNAPSHOT/WEB-INF/classes/com/vadzimvincho/repositories/api/CustomerRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/car-rental-1.0-SNAPSHOT/WEB-INF/classes/com/vadzimvincho/repositories/api/CustomerRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/car-rental-1.0-SNAPSHOT/WEB-INF/classes/com/vadzimvincho/repositories/impl/CarModelRepositoryImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/car-rental-1.0-SNAPSHOT/WEB-INF/classes/com/vadzimvincho/repositories/impl/CarModelRepositoryImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/car-rental-1.0-SNAPSHOT/WEB-INF/classes/com/vadzimvincho/repositories/impl/GenericRepositoryImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/car-rental-1.0-SNAPSHOT/WEB-INF/classes/com/vadzimvincho/repositories/impl/GenericRepositoryImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/car-rental-1.0-SNAPSHOT/WEB-INF/classes/com/vadzimvincho/repositories/impl/RoleRepositoryImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/car-rental-1.0-SNAPSHOT/WEB-INF/classes/com/vadzimvincho/repositories/impl/RoleRepositoryImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/car-rental-1.0-SNAPSHOT/WEB-INF/classes/com/vadzimvincho/services/api/CarMakeService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/car-rental-1.0-SNAPSHOT/WEB-INF/classes/com/vadzimvincho/repositories/impl/CustomerRepositoryImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/car-rental-1.0-SNAPSHOT/WEB-INF/classes/com/vadzimvincho/repositories/impl/CustomerRepositoryImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/car-rental-1.0-SNAPSHOT/WEB-INF/classes/com/vadzimvincho/services/api/CarModelService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/car-rental-1.0-SNAPSHOT/WEB-INF/classes/com/vadzimvincho/services/api/CarModelService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/car-rental-1.0-SNAPSHOT/WEB-INF/classes/com/vadzimvincho/services/api/CustomerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/car-rental-1.0-SNAPSHOT/WEB-INF/classes/com/vadzimvincho/services/api/CustomerService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/car-rental-1.0-SNAPSHOT/WEB-INF/classes/com/vadzimvincho/services/impl/CarMakeServiceImpl.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/car-rental-1.0-SNAPSHOT/WEB-INF/classes/com/vadzimvincho/services/impl/CarModelServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/car-rental-1.0-SNAPSHOT/WEB-INF/classes/com/vadzimvincho/services/impl/CarModelServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/car-rental-1.0-SNAPSHOT/WEB-INF/classes/com/vadzimvincho/services/impl/CustomerServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/car-rental-1.0-SNAPSHOT/WEB-INF/classes/com/vadzimvincho/services/impl/CustomerServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/car-rental-1.0-SNAPSHOT/WEB-INF/classes/com/vadzimvincho/services/impl/GenericServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/car-rental-1.0-SNAPSHOT/WEB-INF/classes/com/vadzimvincho/services/impl/GenericServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/car-rental-1.0-SNAPSHOT/WEB-INF/lib/lombok-1.18.10.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/car-rental-1.0-SNAPSHOT/WEB-INF/lib/modelmapper-2.3.7.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/car-rental-1.0-SNAPSHOT/WEB-INF/pages/cars.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/car-rental-1.0-SNAPSHOT/WEB-INF/pages/customer-list.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/car-rental-1.0-SNAPSHOT/WEB-INF/pages/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/car-rental-1.0-SNAPSHOT/WEB-INF/pages/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/car-rental-1.0-SNAPSHOT/WEB-INF/pages/index.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/car-rental-1.0-SNAPSHOT/WEB-INF/pages/login.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/car-rental-1.0-SNAPSHOT/WEB-INF/pages/main.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/car-rental-1.0-SNAPSHOT/WEB-INF/pages/registration-form.jsp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/car-rental-1.0-SNAPSHOT/WEB-INF/scripts/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/car-rental-1.0-SNAPSHOT/WEB-INF/scripts/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/!!!!!log4j2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/vadzimvincho/controllers/rest/AuthControllerRest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vadzimvincho/controllers/rest/AuthControllerRest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/vadzimvincho/controllers/rest/CarMakeControllerRest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/vadzimvincho/controllers/rest/CarModelControllerRest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vadzimvincho/controllers/rest/CarModelControllerRest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/vadzimvincho/controllers/rest/UserControllerRest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vadzimvincho/controllers/rest/UserControllerRest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/vadzimvincho/models/dto/AuthResponseDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vadzimvincho/models/dto/AuthResponseDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/vadzimvincho/models/dto/CarMakeDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/vadzimvincho/controllers/AuthController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vadzimvincho/controllers/AuthController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/vadzimvincho/models/dto/CarModelDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vadzimvincho/models/dto/CarModelDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/vadzimvincho/models/dto/RegistrationRequestDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vadzimvincho/models/dto/RegistrationRequestDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/vadzimvincho/models/entity/CarDamage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/vadzimvincho/models/entity/CarMake.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/vadzimvincho/models/entity/CarModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vadzimvincho/models/entity/CarModel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/vadzimvincho/models/entity/Customer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vadzimvincho/models/entity/Customer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/vadzimvincho/models/entity/Manager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/vadzimvincho/models/entity/Order.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vadzimvincho/models/entity/Order.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/vadzimvincho/models/entity/Role.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vadzimvincho/models/entity/Role.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/vadzimvincho/models/enums/EnumOrderStatus.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vadzimvincho/models/enums/EnumOrderStatus.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/vadzimvincho/repositories/api/CarMakeRepository.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/vadzimvincho/repositories/api/CarModelRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vadzimvincho/repositories/api/CarModelRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/vadzimvincho/repositories/impl/CarMakeRepositoryImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/vadzimvincho/repositories/api/CustomerRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vadzimvincho/repositories/api/CustomerRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/vadzimvincho/repositories/impl/CarModelRepositoryImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vadzimvincho/repositories/impl/CarModelRepositoryImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/vadzimvincho/repositories/impl/GenericRepositoryImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vadzimvincho/repositories/impl/GenericRepositoryImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/vadzimvincho/repositories/impl/RoleRepositoryImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vadzimvincho/repositories/impl/RoleRepositoryImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/vadzimvincho/services/api/CarMakeService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/vadzimvincho/repositories/impl/CustomerRepositoryImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vadzimvincho/repositories/impl/CustomerRepositoryImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/vadzimvincho/services/api/CarModelService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vadzimvincho/services/api/CarModelService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/vadzimvincho/services/api/CustomerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vadzimvincho/services/api/CustomerService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/vadzimvincho/services/impl/CarMakeServiceImpl.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/vadzimvincho/services/impl/CarModelServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vadzimvincho/services/impl/CarModelServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/vadzimvincho/services/impl/CustomerServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vadzimvincho/services/impl/CustomerServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/vadzimvincho/services/impl/GenericServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vadzimvincho/services/impl/GenericServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/create-db.sql" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/create-db.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -179,6 +76,9 @@
     <option name="FILTER_INFO" value="true" />
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="MavenRunner">
+    <option name="skipTests" value="true" />
   </component>
   <component name="ProjectId" id="1tGQObz4oieFxYSsWVUkaqVC8tX" />
   <component name="ProjectLevelVcsManager">
@@ -191,6 +91,7 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -219,7 +120,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CarControllerRestTest.getAll" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CarControllerRestTest.add" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="car-rental" />
       <extension name="coverage">
         <pattern>
@@ -229,7 +130,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.vadzimvincho.controllers.rest" />
       <option name="MAIN_CLASS_NAME" value="com.vadzimvincho.controllers.rest.CarControllerRestTest" />
-      <option name="METHOD_NAME" value="getAll" />
+      <option name="METHOD_NAME" value="add" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -261,6 +162,37 @@
       <option name="PACKAGE_NAME" value="com.vadzimvincho.controllers.rest" />
       <option name="MAIN_CLASS_NAME" value="com.vadzimvincho.controllers.rest.CarModelControllerRestTest" />
       <option name="METHOD_NAME" value="getById" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OrderControllerRestTest" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+      <module name="car-rental" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.vadzimvincho.controllers.rest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.vadzimvincho.controllers.rest" />
+      <option name="MAIN_CLASS_NAME" value="com.vadzimvincho.controllers.rest.OrderControllerRestTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OrderControllerRestTest.create" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="car-rental" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.vadzimvincho.controllers.rest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.vadzimvincho.controllers.rest" />
+      <option name="MAIN_CLASS_NAME" value="com.vadzimvincho.controllers.rest.OrderControllerRestTest" />
+      <option name="METHOD_NAME" value="create" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -372,19 +304,22 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="JUnit.OrderControllerRestTest" />
       <item itemvalue="JUnit.UserControllerRestTest" />
       <item itemvalue="JUnit.CarControllerRestTest" />
-      <item itemvalue="JUnit.CarControllerRestTest.getAll" />
       <item itemvalue="JUnit.CarModelControllerRestTest" />
       <item itemvalue="JUnit.CarModelControllerRestTest.getById" />
+      <item itemvalue="JUnit.OrderControllerRestTest.create" />
+      <item itemvalue="JUnit.CarControllerRestTest.add" />
       <item itemvalue="Tomcat Server.Tomcat 9.0.342" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.CarControllerRestTest.add" />
+        <item itemvalue="JUnit.OrderControllerRestTest.create" />
         <item itemvalue="JUnit.CarModelControllerRestTest.getById" />
         <item itemvalue="JUnit.CarModelControllerRestTest" />
         <item itemvalue="JUnit.CarControllerRestTest" />
-        <item itemvalue="JUnit.CarControllerRestTest.getAll" />
       </list>
     </recent_temporary>
   </component>
@@ -397,6 +332,14 @@
       <option name="presentableId" value="Default" />
       <updated>1622392922168</updated>
       <workItem from="1622392925817" duration="28643000" />
+      <workItem from="1622446227180" duration="22461000" />
+      <workItem from="1622471211755" duration="592000" />
+      <workItem from="1622471907466" duration="5391000" />
+      <workItem from="1622527114456" duration="2901000" />
+      <workItem from="1622544488827" duration="1055000" />
+      <workItem from="1622644121680" duration="7566000" />
+      <workItem from="1623254393908" duration="12000" />
+      <workItem from="1623791021534" duration="92000" />
     </task>
     <servers />
   </component>
@@ -416,5 +359,10 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="com.vadzimvincho.models.entity.Order" memberName="car" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
 </project>
