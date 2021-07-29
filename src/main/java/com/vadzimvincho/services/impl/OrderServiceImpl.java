@@ -1,6 +1,5 @@
 package com.vadzimvincho.services.impl;
 
-import com.vadzimvincho.exceptions.DaoException;
 import com.vadzimvincho.exceptions.Message;
 import com.vadzimvincho.models.dto.CarDamageDto;
 import com.vadzimvincho.models.entity.Car;
@@ -39,9 +38,8 @@ public class OrderServiceImpl extends GenericServiceImpl<Order, OrderRepository>
     }
 
     @Override
-    public void create(Order order) throws DaoException {
+    public void create(Order order) {
         Car car = carRepository.getById(order.getCar().getId());
-//        order.setCustomer(customerRepository.getById(order.getCustomer().getId()));
         if (!car.getCarStatus().getStatus().equals(EnumCarStatus.AVAILABLE)) {
             logger.error("Car is not available");
             throw new RuntimeException("Car is not available");
@@ -56,14 +54,14 @@ public class OrderServiceImpl extends GenericServiceImpl<Order, OrderRepository>
     }
 
     @Override
-    public void confirm(Order order) throws DaoException {
+    public void confirm(Order order) {
         order.setOrderStatus(orderStatusRepository.getByEnumName(EnumOrderStatus.EXECUTING));
         ownRepository.update(order);
         logger.info("Order confirmed");
     }
 
     @Override
-    public void cancel(Order order, Message message) throws DaoException {
+    public void cancel(Order order, Message message) {
         order.setOrderStatus(orderStatusRepository.getByEnumName(EnumOrderStatus.CANCELED));
         order.setInfo(message.getMessage());
         order.getCar().setCarStatus(carStatusRepository.getByEnumName(EnumCarStatus.AVAILABLE));
@@ -72,7 +70,7 @@ public class OrderServiceImpl extends GenericServiceImpl<Order, OrderRepository>
     }
 
     @Override
-    public void complete(Order order, CarDamageDto carDamage) throws DaoException {
+    public void complete(Order order, CarDamageDto carDamage) {
         if (carDamage != null) {
             order.setInfo(carDamage.getInfo());
             order.setPrice(order.getPrice() + carDamage.getPrice());
@@ -94,12 +92,12 @@ public class OrderServiceImpl extends GenericServiceImpl<Order, OrderRepository>
 
 
     @Override
-    public List<Order> getByCustomer(Long customerId) throws DaoException {
+    public List<Order> getByCustomer(Long customerId) {
         return ownRepository.getByCustomer(customerRepository.getById(customerId));
     }
 
     @Override
-    public List<Order> getByCar(Long carId) throws DaoException {
+    public List<Order> getByCar(Long carId) {
         return ownRepository.getByCar(carRepository.getById(carId));
     }
 }
