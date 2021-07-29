@@ -21,8 +21,7 @@ public class OrderStatusRepositoryImpl extends GenericRepositoryImpl<OrderStatus
         CriteriaQuery<OrderStatus> query = criteriaBuilder.createQuery(OrderStatus.class);
         Root<OrderStatus> root = query.from(OrderStatus.class);
         query.select(root).where(criteriaBuilder.equal(root.get("status"), enumOrderStatus));
-        OrderStatus orderStatus = entityManager.createQuery(query).getSingleResult();
-        return orderStatus;
+        return entityManager.createQuery(query).getSingleResult();
     }
 
 }

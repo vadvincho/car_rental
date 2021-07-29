@@ -22,19 +22,17 @@ public class OrderRepositoryImpl extends GenericRepositoryImpl<Order> implements
         Root<Order> root = query.from(Order.class);
         Join<Order, Customer> join = root.join("customer", JoinType.LEFT);
         query.select(root).where(criteriaBuilder.equal(join.get("id"), customer.getId()));
-        List<Order> ordersByCustomer = entityManager.createQuery(query).getResultList();
-        return ordersByCustomer;
+        return entityManager.createQuery(query).getResultList();
     }
 
     @Override
-    public List<Order> getByCar(Car car){
+    public List<Order> getByCar(Car car) {
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
         CriteriaQuery<Order> query = criteriaBuilder.createQuery(Order.class);
         Root<Order> root = query.from(Order.class);
         Join<Order, Customer> join = root.join("car", JoinType.LEFT);
         query.select(root).where(criteriaBuilder.equal(join.get("id"), car.getId()));
-        List<Order> ordersByElectricCar = entityManager.createQuery(query).getResultList();
-        return ordersByElectricCar;
+        return entityManager.createQuery(query).getResultList();
     }
 }
 
