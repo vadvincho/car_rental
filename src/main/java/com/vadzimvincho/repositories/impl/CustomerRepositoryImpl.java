@@ -21,7 +21,6 @@ public class CustomerRepositoryImpl extends GenericRepositoryImpl<Customer> impl
         Root<Customer> root = query.from(Customer.class);
         Join<Customer, AppUser> join = root.join("user", JoinType.LEFT);
         query.select(root).where(criteriaBuilder.equal(join.get("id"), user.getId()));
-        List<Customer> customerList = entityManager.createQuery(query).getResultList();
-        return customerList.get(0);
+        return entityManager.createQuery(query).getSingleResult();
     }
 }

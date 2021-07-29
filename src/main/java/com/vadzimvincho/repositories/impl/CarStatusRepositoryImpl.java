@@ -21,8 +21,7 @@ public class CarStatusRepositoryImpl extends GenericRepositoryImpl<CarStatus> im
         CriteriaQuery<CarStatus> query = criteriaBuilder.createQuery(CarStatus.class);
         Root<CarStatus> root = query.from(CarStatus.class);
         query.select(root).where(criteriaBuilder.equal(root.get("status"), enumCarStatus));
-        CarStatus carStatus = entityManager.createQuery(query).getSingleResult();
-        return carStatus;
+        return entityManager.createQuery(query).getSingleResult();
     }
 
 }

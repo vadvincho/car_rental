@@ -23,8 +23,7 @@ public class CarRepositoryImpl extends GenericRepositoryImpl<Car> implements Car
         Root<Car> root = query.from(Car.class);
         Join<Car, CarModel> join1 = root.join("carModel", JoinType.LEFT);
         query.select(root).where(criteriaBuilder.equal(join1.get("name"), carModel.getName()));
-        List<Car> cars = entityManager.createQuery(query).getResultList();
-        return cars;
+        return entityManager.createQuery(query).getResultList();
     }
 
     @Override
@@ -34,7 +33,6 @@ public class CarRepositoryImpl extends GenericRepositoryImpl<Car> implements Car
         Root<Car> root = query.from(Car.class);
         Join<Car, CarStatus> join = root.join("carStatus", JoinType.LEFT);
         query.select(root).where(criteriaBuilder.equal(join.get("status"), status));
-        List<Car> cars = entityManager.createQuery(query).getResultList();
-        return cars;
+        return entityManager.createQuery(query).getResultList();
     }
 }
