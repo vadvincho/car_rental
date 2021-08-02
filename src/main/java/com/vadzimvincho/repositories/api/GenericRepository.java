@@ -13,6 +13,4 @@ public interface GenericRepository<T> {
     void update(T object);
 
     List<T> getAll();
-
-    void setTClassName(Class tClass);
 }

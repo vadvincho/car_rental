@@ -14,6 +14,10 @@ public class GenericRepositoryImpl<T extends BaseEntity> implements GenericRepos
 
     private Class tClass;
 
+    public void setTClassName(Class tClass) {
+        this.tClass = tClass;
+    }
+
     @PersistenceContext
     protected EntityManager entityManager;
 
@@ -45,10 +49,5 @@ public class GenericRepositoryImpl<T extends BaseEntity> implements GenericRepos
         Root<T> root = criteriaQuery.from(tClass);
         criteriaQuery.select(root);
         return entityManager.createQuery(criteriaQuery).getResultList();
-    }
-
-    @Override
-    public void setTClassName(Class tClass) {
-        this.tClass = tClass;
     }
 }
