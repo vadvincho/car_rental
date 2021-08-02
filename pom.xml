@@ -213,6 +213,13 @@
 			<version>2.2.0</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<version>3.10.0</version>
+			<scope>test</scope>
+		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -225,45 +232,45 @@
 <!--				</configuration>-->
 <!--			</plugin>-->
 
-			<plugin>
-				<groupId>org.codehaus.cargo</groupId>
-				<artifactId>cargo-maven2-plugin</artifactId>
-				<version>1.7.6</version>
-				<configuration>
-					<container>
-						<containerId>tomcat9x</containerId>
-						<type>embedded</type>
-					</container>
-					<configuration>
-						<properties>
-							<cargo.servlet.port>8081</cargo.servlet.port>
-							<cargo.tomcat.manager.url>http://localhost:8081</cargo.tomcat.manager.url>
-						</properties>
-					</configuration>
-					<deployables>
-						<deployable>
-							<groupId>com.vadzimvincho</groupId>
-							<artifactId>car-rental</artifactId>
-							<type>war</type>
-							<properties>
-								<!--important reference-->
-								<!--https://codehaus-cargo.github.io/cargo/Maven2+Plugin+Reference+Guide.html-->
-								<!--https://stackoverflow.com/questions/17194226/cargo-maven2-plugin-change-target-text-on-remote-type-->
-								<context>/</context>
-							</properties>
-						</deployable>
-					</deployables>
-				</configuration>
+<!--			<plugin>-->
+<!--				<groupId>org.codehaus.cargo</groupId>-->
+<!--				<artifactId>cargo-maven2-plugin</artifactId>-->
+<!--				<version>1.7.6</version>-->
+<!--				<configuration>-->
+<!--					<container>-->
+<!--						<containerId>tomcat9x</containerId>-->
+<!--						<type>embedded</type>-->
+<!--					</container>-->
+<!--					<configuration>-->
+<!--						<properties>-->
+<!--							<cargo.servlet.port>8081</cargo.servlet.port>-->
+<!--							<cargo.tomcat.manager.url>http://localhost:8081</cargo.tomcat.manager.url>-->
+<!--						</properties>-->
+<!--					</configuration>-->
+<!--					<deployables>-->
+<!--						<deployable>-->
+<!--							<groupId>com.vadzimvincho</groupId>-->
+<!--							<artifactId>car-rental</artifactId>-->
+<!--							<type>war</type>-->
+<!--							<properties>-->
+<!--								&lt;!&ndash;important reference&ndash;&gt;-->
+<!--								&lt;!&ndash;https://codehaus-cargo.github.io/cargo/Maven2+Plugin+Reference+Guide.html&ndash;&gt;-->
+<!--								&lt;!&ndash;https://stackoverflow.com/questions/17194226/cargo-maven2-plugin-change-target-text-on-remote-type&ndash;&gt;-->
+<!--								<context>/</context>-->
+<!--							</properties>-->
+<!--						</deployable>-->
+<!--					</deployables>-->
+<!--				</configuration>-->
 
-				<executions>
-					<execution>
-						<phase>package</phase>
-						<goals>
-							<goal>run</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
+<!--				<executions>-->
+<!--					<execution>-->
+<!--						<phase>package</phase>-->
+<!--						<goals>-->
+<!--							<goal>run</goal>-->
+<!--						</goals>-->
+<!--					</execution>-->
+<!--				</executions>-->
+<!--			</plugin>-->
 
 		</plugins>
 	</build>
