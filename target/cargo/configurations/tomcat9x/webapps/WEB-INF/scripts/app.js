@@ -1,4 +1,4 @@
-var app = angular.module('app',[]);
+const app = angular.module('app', []);
 
 app.controller('UserCRUDCtrl', ['$scope','UserCRUDService', function ($scope,UserCRUDService) {
 
@@ -15,7 +15,7 @@ app.controller('UserCRUDCtrl', ['$scope','UserCRUDService', function ($scope,Use
     }
 
     $scope.getUser = function () {
-        var id = $scope.user.id;
+        let id = $scope.user.id;
         UserCRUDService.getUser($scope.user.id)
             .then(function success(response){
                     $scope.user = response.data;
