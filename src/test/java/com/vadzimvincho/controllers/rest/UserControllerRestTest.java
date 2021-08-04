@@ -7,6 +7,7 @@ import com.vadzimvincho.models.dto.AppUserDto;
 import com.vadzimvincho.models.entity.AppUser;
 import com.vadzimvincho.repositories.api.RoleRepository;
 import com.vadzimvincho.services.api.UserService;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.modelmapper.ModelMapper;
@@ -45,10 +46,10 @@ public class UserControllerRestTest {
     @Test
     public void getAll() throws Exception {
         mockMvc.perform(
-                MockMvcRequestBuilders
-                        .get("/users")
-                        .accept(MediaType.APPLICATION_JSON)
-        ).andDo(print())
+                        MockMvcRequestBuilders
+                                .get("/users")
+                                .accept(MediaType.APPLICATION_JSON)
+                ).andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.[0].login")
                         .value("admin"))
@@ -61,10 +62,10 @@ public class UserControllerRestTest {
     @Test
     public void getById() throws Exception {
         mockMvc.perform(
-                MockMvcRequestBuilders
-                        .get("/users/1")
-                        .accept(MediaType.APPLICATION_JSON)
-        ).andDo(print())
+                        MockMvcRequestBuilders
+                                .get("/users/1")
+                                .accept(MediaType.APPLICATION_JSON)
+                ).andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.login")
                         .value("admin"));
@@ -79,26 +80,26 @@ public class UserControllerRestTest {
         user.setPassword("12345");
 
         mockMvc.perform(
-                MockMvcRequestBuilders
-                        .post("/users")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(objToJson(modelMapper.map(user, AppUserDto.class)))
-                        .accept(MediaType.APPLICATION_JSON)
-        ).andDo(print())
+                        MockMvcRequestBuilders
+                                .post("/users")
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content(objToJson(modelMapper.map(user, AppUserDto.class)))
+                                .accept(MediaType.APPLICATION_JSON)
+                ).andDo(print())
                 .andExpect(status().isOk());
-        assert userService.getAll().size() == 4;
-        assert userService.getById(4L).getLogin().equals("test");
+        Assert.assertTrue(userService.getAll().size() == 4);
+        Assert.assertTrue(userService.getById(4L).getLogin().equals("test"));
     }
 
     @Test
     public void remove() throws Exception {
         mockMvc.perform(
-                MockMvcRequestBuilders
-                        .delete("/users/2")
-                        .accept(MediaType.APPLICATION_JSON)
-        ).andDo(print())
+                        MockMvcRequestBuilders
+                                .delete("/users/2")
+                                .accept(MediaType.APPLICATION_JSON)
+                ).andDo(print())
                 .andExpect(status().isOk());
-        assert userService.getAll().size() == 2;
+        Assert.assertTrue(userService.getAll().size() == 2);
     }
 
     @Test
@@ -106,13 +107,13 @@ public class UserControllerRestTest {
         AppUser user = userService.getById(1L);
         user.setLogin("test");
         mockMvc.perform(
-                MockMvcRequestBuilders
-                        .patch("/users")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(objToJson(modelMapper.map(user, AppUserDto.class)))
-                        .accept(MediaType.APPLICATION_JSON)
-        ).andDo(print())
+                        MockMvcRequestBuilders
+                                .patch("/users")
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content(objToJson(modelMapper.map(user, AppUserDto.class)))
+                                .accept(MediaType.APPLICATION_JSON)
+                ).andDo(print())
                 .andExpect(status().isOk());
-        assert userService.getById(1L).getLogin().equals("test");
+        Assert.assertTrue(userService.getById(1L).getLogin().equals("test"));
     }
 }

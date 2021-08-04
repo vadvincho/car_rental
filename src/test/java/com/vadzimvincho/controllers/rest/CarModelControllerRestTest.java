@@ -6,6 +6,7 @@ import com.vadzimvincho.configs.WebConfig;
 import com.vadzimvincho.models.dto.CarModelDto;
 import com.vadzimvincho.models.entity.CarModel;
 import com.vadzimvincho.services.api.CarModelService;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.modelmapper.ModelMapper;
@@ -42,10 +43,10 @@ public class CarModelControllerRestTest {
     @Test
     public void getAll() throws Exception {
         mockMvc.perform(
-                MockMvcRequestBuilders
-                        .get("/carModels")
-                        .accept(MediaType.APPLICATION_JSON)
-        ).andDo(print())
+                        MockMvcRequestBuilders
+                                .get("/carModels")
+                                .accept(MediaType.APPLICATION_JSON)
+                ).andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.[0].name")
                         .value("FOCUS"))
@@ -60,10 +61,10 @@ public class CarModelControllerRestTest {
     @Test
     public void getById() throws Exception {
         mockMvc.perform(
-                MockMvcRequestBuilders
-                        .get("/carModels/1")
-                        .accept(MediaType.APPLICATION_JSON)
-        ).andDo(print())
+                        MockMvcRequestBuilders
+                                .get("/carModels/1")
+                                .accept(MediaType.APPLICATION_JSON)
+                ).andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.id")
                         .value("FOCUS"));
@@ -77,28 +78,26 @@ public class CarModelControllerRestTest {
         carModel.setYear(2001L);
 
         mockMvc.perform(
-                MockMvcRequestBuilders
-                        .post("/carModels")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(objToJson(modelMapper.map(carModel, CarModelDto.class)))
-                        .accept(MediaType.APPLICATION_JSON)
-        ).andDo(print())
+                        MockMvcRequestBuilders
+                                .post("/carModels")
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content(objToJson(modelMapper.map(carModel, CarModelDto.class)))
+                                .accept(MediaType.APPLICATION_JSON)
+                ).andDo(print())
                 .andExpect(status().isOk());
-        System.out.println(carModelService.getAll().size());
-        assert carModelService.getAll().size() == 7;
-        assert carModelService.getById(5L).getName().equals("test name");
+        Assert.assertEquals(7, carModelService.getAll().size());
+        Assert.assertEquals("test name", carModelService.getById(5L).getName());
     }
 
     @Test
     public void remove() throws Exception {
         mockMvc.perform(
-                MockMvcRequestBuilders
-                        .delete("/carModels/2")
-                        .accept(MediaType.APPLICATION_JSON)
-        ).andDo(print())
+                        MockMvcRequestBuilders
+                                .delete("/carModels/2")
+                                .accept(MediaType.APPLICATION_JSON)
+                ).andDo(print())
                 .andExpect(status().isOk());
-        System.out.println(carModelService.getAll().size());
-        assert carModelService.getAll().size() == 5;
+        Assert.assertEquals(5, carModelService.getAll().size());
     }
 
     @Test
@@ -106,13 +105,13 @@ public class CarModelControllerRestTest {
         CarModel carModel = carModelService.getById(1L);
         carModel.setName("New name");
         mockMvc.perform(
-                MockMvcRequestBuilders
-                        .patch("/carModels")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(objToJson(modelMapper.map(carModel, CarModelDto.class)))
-                        .accept(MediaType.APPLICATION_JSON)
-        ).andDo(print())
+                        MockMvcRequestBuilders
+                                .patch("/carModels")
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content(objToJson(modelMapper.map(carModel, CarModelDto.class)))
+                                .accept(MediaType.APPLICATION_JSON)
+                ).andDo(print())
                 .andExpect(status().isOk());
-        assert carModelService.getById(1L).getName().equals("New name");
+        Assert.assertEquals("New name", carModelService.getById(1L).getName());
     }
 }

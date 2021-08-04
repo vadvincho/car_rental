@@ -68,12 +68,12 @@ public class OrderControllerRestTest {
         newOrder.setEndTime(LocalDate.parse("2021-05-30"));
 
         mockMvc.perform(
-                MockMvcRequestBuilders
-                        .post("/orders")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(objToJson(modelMapper.map(newOrder, OrderDto.class)))
-                        .accept(MediaType.APPLICATION_JSON)
-        ).andDo(print())
+                        MockMvcRequestBuilders
+                                .post("/orders")
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content(objToJson(modelMapper.map(newOrder, OrderDto.class)))
+                                .accept(MediaType.APPLICATION_JSON)
+                ).andDo(print())
                 .andExpect(status().isOk());
         Assert.assertEquals(3, orderService.getAll().size());
         Assert.assertEquals(orderService.getById(3L).getOrderStatus().getStatus().name(), "PENDING");
@@ -82,10 +82,10 @@ public class OrderControllerRestTest {
     @Test
     public void getAll() throws Exception {
         mockMvc.perform(
-                MockMvcRequestBuilders
-                        .get("/orders")
-                        .accept(MediaType.APPLICATION_JSON)
-        ).andDo(print())
+                        MockMvcRequestBuilders
+                                .get("/orders")
+                                .accept(MediaType.APPLICATION_JSON)
+                ).andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.[0].price")
                         .value(750))
@@ -96,10 +96,10 @@ public class OrderControllerRestTest {
     @Test
     public void getById() throws Exception {
         mockMvc.perform(
-                MockMvcRequestBuilders
-                        .get("/orders/1")
-                        .accept(MediaType.APPLICATION_JSON)
-        ).andDo(print())
+                        MockMvcRequestBuilders
+                                .get("/orders/1")
+                                .accept(MediaType.APPLICATION_JSON)
+                ).andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.customer.name")
                         .value("customer2"))
@@ -110,39 +110,39 @@ public class OrderControllerRestTest {
     @Test
     public void remove() throws Exception {
         mockMvc.perform(
-                MockMvcRequestBuilders
-                        .delete("/orders/2")
-                        .accept(MediaType.APPLICATION_JSON)
-        ).andDo(print())
+                        MockMvcRequestBuilders
+                                .delete("/orders/2")
+                                .accept(MediaType.APPLICATION_JSON)
+                ).andDo(print())
                 .andExpect(status().isOk());
-        assert orderService.getAll().size() == 1;
+        Assert.assertEquals(1, orderService.getAll().size());
     }
 
     @Test
     public void cancel() throws Exception {
         Message message = new Message("Test message");
         mockMvc.perform(
-                MockMvcRequestBuilders
-                        .post("/orders/cancel/1")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(objToJson(message))
-                        .accept(MediaType.APPLICATION_JSON)
-        ).andDo(print())
+                        MockMvcRequestBuilders
+                                .post("/orders/cancel/1")
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content(objToJson(message))
+                                .accept(MediaType.APPLICATION_JSON)
+                ).andDo(print())
                 .andExpect(status().isOk());
-        assert orderService.getById(1L).getOrderStatus().getId() == 4;
-        assert orderService.getById(1L).getInfo().equals("Test message");
+        Assert.assertEquals(java.util.Optional.of(4l), orderService.getById(1L).getOrderStatus().getId());
+        Assert.assertEquals("Test message", orderService.getById(1L).getInfo());
     }
 
     @Test
     public void confirm() throws Exception {
         mockMvc.perform(
-                MockMvcRequestBuilders
-                        .post("/orders/confirm/1")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .accept(MediaType.APPLICATION_JSON)
-        ).andDo(print())
+                        MockMvcRequestBuilders
+                                .post("/orders/confirm/1")
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .accept(MediaType.APPLICATION_JSON)
+                ).andDo(print())
                 .andExpect(status().isOk());
-        assert orderService.getById(1L).getOrderStatus().getId() == 2;
+        Assert.assertEquals(java.util.Optional.of(2), orderService.getById(1L).getOrderStatus().getId());
     }
 
     @Test
@@ -152,14 +152,14 @@ public class OrderControllerRestTest {
         carDamageDto.setPrice(200);
 
         mockMvc.perform(
-                MockMvcRequestBuilders
-                        .post("/orders/complete/1")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(objToJson(carDamageDto))
-                        .accept(MediaType.APPLICATION_JSON)
-        ).andDo(print())
+                        MockMvcRequestBuilders
+                                .post("/orders/complete/1")
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content(objToJson(carDamageDto))
+                                .accept(MediaType.APPLICATION_JSON)
+                ).andDo(print())
                 .andExpect(status().isOk());
-        assert orderService.getById(1L).getOrderStatus().getId() == 3;
+        Assert.assertEquals(java.util.Optional.of(3), orderService.getById(1L).getOrderStatus().getId());
     }
 
 
@@ -168,13 +168,13 @@ public class OrderControllerRestTest {
         Order order = orderService.getById(1L);
         order.setInfo("any info");
         mockMvc.perform(
-                MockMvcRequestBuilders
-                        .patch("/orders")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(objToJson(modelMapper.map(order, OrderDto.class)))
-                        .accept(MediaType.APPLICATION_JSON)
-        ).andDo(print())
+                        MockMvcRequestBuilders
+                                .patch("/orders")
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content(objToJson(modelMapper.map(order, OrderDto.class)))
+                                .accept(MediaType.APPLICATION_JSON)
+                ).andDo(print())
                 .andExpect(status().isOk());
-        assert orderService.getById(1L).getInfo().equals("any info");
+        Assert.assertEquals("any info", orderService.getById(1L).getInfo());
     }
 }

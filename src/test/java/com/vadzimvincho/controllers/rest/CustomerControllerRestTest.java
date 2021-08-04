@@ -9,6 +9,7 @@ import com.vadzimvincho.models.entity.AppUser;
 import com.vadzimvincho.models.entity.Customer;
 import com.vadzimvincho.services.api.CustomerService;
 import com.vadzimvincho.services.api.UserService;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.modelmapper.ModelMapper;
@@ -47,10 +48,10 @@ public class CustomerControllerRestTest {
     @Test
     public void getAll() throws Exception {
         mockMvc.perform(
-                MockMvcRequestBuilders
-                        .get("/customers")
-                        .accept(MediaType.APPLICATION_JSON)
-        ).andDo(print())
+                        MockMvcRequestBuilders
+                                .get("/customers")
+                                .accept(MediaType.APPLICATION_JSON)
+                ).andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.[0].name")
                         .value("customer1"))
@@ -65,10 +66,10 @@ public class CustomerControllerRestTest {
     @Test
     public void getById() throws Exception {
         mockMvc.perform(
-                MockMvcRequestBuilders
-                        .get("/customers/1")
-                        .accept(MediaType.APPLICATION_JSON)
-        ).andDo(print())
+                        MockMvcRequestBuilders
+                                .get("/customers/1")
+                                .accept(MediaType.APPLICATION_JSON)
+                ).andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.name")
                         .value("customer1"))
@@ -84,27 +85,27 @@ public class CustomerControllerRestTest {
         customer.setPhoneNumber("+1111111111");
         customer.setUser(user);
         mockMvc.perform(
-                MockMvcRequestBuilders
-                        .post("/customers")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(objToJson(modelMapper.map(customer, CustomerDto.class)))
-                        .accept(MediaType.APPLICATION_JSON)
-        ).andDo(print())
+                        MockMvcRequestBuilders
+                                .post("/customers")
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content(objToJson(modelMapper.map(customer, CustomerDto.class)))
+                                .accept(MediaType.APPLICATION_JSON)
+                ).andDo(print())
                 .andExpect(status().isOk());
-        assert customerService.getAll().size() == 5;
-        assert customerService.getById(5L).getName().equals("New customer");
-        assert customerService.getById(5L).getPhoneNumber().equals("+1111111111");
+        Assert.assertTrue(customerService.getAll().size() == 5);
+        Assert.assertTrue(customerService.getById(5L).getName().equals("New customer"));
+        Assert.assertTrue(customerService.getById(5L).getPhoneNumber().equals("+1111111111"));
     }
 
     @Test
     public void remove() throws Exception {
         mockMvc.perform(
-                MockMvcRequestBuilders
-                        .delete("/customers/2")
-                        .accept(MediaType.APPLICATION_JSON)
-        ).andDo(print())
+                        MockMvcRequestBuilders
+                                .delete("/customers/2")
+                                .accept(MediaType.APPLICATION_JSON)
+                ).andDo(print())
                 .andExpect(status().isOk());
-        assert customerService.getAll().size() == 3;
+        Assert.assertTrue(customerService.getAll().size() == 3);
     }
 
     @Test
@@ -112,15 +113,15 @@ public class CustomerControllerRestTest {
         Customer customer = customerService.getById(1L);
         customer.setName("New name");
         mockMvc.perform(
-                MockMvcRequestBuilders
-                        .patch("/customers")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(objToJson(modelMapper.map(customer, CustomerDto.class)))
-                        .accept(MediaType.APPLICATION_JSON)
-        ).andDo(print())
+                        MockMvcRequestBuilders
+                                .patch("/customers")
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content(objToJson(modelMapper.map(customer, CustomerDto.class)))
+                                .accept(MediaType.APPLICATION_JSON)
+                ).andDo(print())
                 .andExpect(status().isOk());
-        assert customerService.getById(1L).getName().equals("New name");
-        assert customerService.getById(1L).getPhoneNumber().equals("+375285554556");
+        Assert.assertTrue(customerService.getById(1L).getName().equals("New name"));
+        Assert.assertTrue(customerService.getById(1L).getPhoneNumber().equals("+375285554556"));
     }
 
     @Test
@@ -128,13 +129,13 @@ public class CustomerControllerRestTest {
         CustomerBalanceDto balanceDto = new CustomerBalanceDto();
         balanceDto.setMoney(500d);
         mockMvc.perform(
-                MockMvcRequestBuilders
-                        .post("/customers/top-up-balance/1")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(objToJson(balanceDto))
-                        .accept(MediaType.APPLICATION_JSON)
-        ).andDo(print())
+                        MockMvcRequestBuilders
+                                .post("/customers/top-up-balance/1")
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content(objToJson(balanceDto))
+                                .accept(MediaType.APPLICATION_JSON)
+                ).andDo(print())
                 .andExpect(status().isOk());
-        assert (Math.abs(customerService.getById(1L).getBalance()) - 2000) <= 0.000001;
+        Assert.assertEquals(2000, customerService.getById(1L).getBalance(), 0.001);
     }
 }
