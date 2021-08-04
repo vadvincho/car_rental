@@ -8,8 +8,6 @@ import org.springframework.dao.annotation.PersistenceExceptionTranslationPostPro
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import javax.servlet.http.HttpServlet;
-
 import static org.modelmapper.config.Configuration.AccessLevel.PRIVATE;
 
 @Configuration
