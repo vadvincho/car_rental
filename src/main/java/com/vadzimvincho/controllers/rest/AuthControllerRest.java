@@ -43,7 +43,7 @@ public class AuthControllerRest {
         try {
             appUser = userService.findByLoginAndPassword(authDto.getLogin(), authDto.getPassword());
         } catch (UsernameNotFoundException e) {
-            return ResponseEntity.badRequest().body(new Message("User with such login and/or password wasn't found"));
+            return ResponseEntity.badRequest().body(new Message("No user with this username and/or password was found"));
         }
         if (appUser != null) {
             String token = jwtProvider.generateToken(appUser.getLogin());

@@ -27,13 +27,6 @@ const post = function (url, data) {
         },
         body: data
     })
-        // .then(res => {
-        //     if (res.status == 403) {
-        //         alert("No access rights");
-        //     } else {
-        //         res.json().then(json => alert(json.message)).then(() => location.reload());
-        //     }
-        // })
         .then(res => res.json())
         .then(json => alert(json.message))
         .then(() => location.reload())
@@ -50,9 +43,6 @@ const get = function (url) {
                 res.json().then(json => alert(json.message)).then(() => location.reload());
             }
         })
-    // .then(res => res.json())
-    // .then(json => alert(json.message))
-    // .then(() => location.reload())
 }
 
 // register
@@ -187,18 +177,6 @@ if (tpProfile) {
         fetch(`${urlUsers}/bylogin/${authName.innerHTML}`, {
             method: 'GET'
         })
-            // .then(res => {
-            //     if (res.status == 403) {
-            //         alert("No access rights");
-            //     } else {
-            //         res.json().then(json => {
-            //             userId = json.id;
-            //             tpProfileForm.login.value = json.login;
-            //             tpProfileForm.email.value = json.email;
-            //             tpProfileForm.role.value = json.role.name;
-            //         })
-            //     }
-            // })
             .then(res => res.json())
             .then(json => {
                 userId = json.id;
@@ -220,21 +198,6 @@ if (tpProfile) {
                             tpProfileForm.balance.value = json.balance;
 
                         })
-                    // .then(res => {
-                    //     if (res.status == 403) {
-                    //         alert("No access rights");
-                    //     } else {
-                    //         res.json().then(json => {
-                    //             customerId = json.id;
-                    //             if (tpProfileForm.name) {
-                    //                 tpProfileForm.name.value = json.name;
-                    //                 tpProfileForm.phoneNumber.value = json.phoneNumber;
-                    //                 tpProfileForm.passport.value = json.passport;
-                    //                 tpProfileForm.balance.value = json.balance;
-                    //             }
-                    //         });
-                    //     }
-                    // })
                 }
             })
     });
