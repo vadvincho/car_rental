@@ -1,4 +1,4 @@
-package com.vinchovadzim.exceptions;
+package com.vadzimvincho.exceptions;
 
 public class WrongInputException extends Exception {
     public WrongInputException(Exception e) {
