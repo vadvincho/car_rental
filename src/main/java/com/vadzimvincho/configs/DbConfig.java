@@ -32,9 +32,7 @@ public class DbConfig {
     @Value("${jpa.hibernate.hbm2ddl.auto}")
     private String hibernateHbm2ddlAuto;
     @Value("${jpa.hibernate.show_sql}")
-    private String hibernateShowSql ;
-    @Value("${jpa.hibernate.enable_lazy_load_no_trans}")
-    private String hibernateEnableLazyLoadNoTrans;
+    private String hibernateShowSql;
     @Value("${jpa.hibernate.dialect}")
     private String hibernateDialect;
 
@@ -46,7 +44,6 @@ public class DbConfig {
         containerEntityManagerFactoryBean.setPackagesToScan("com.vadzimvincho.models.entity");
         JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         containerEntityManagerFactoryBean.setJpaVendorAdapter(vendorAdapter);
-        containerEntityManagerFactoryBean.setJpaProperties(additionalProperties());
         return containerEntityManagerFactoryBean;
     }
 
@@ -71,7 +68,6 @@ public class DbConfig {
         Properties properties = new Properties();
         properties.setProperty("hibernate.hbm2ddl.auto", hibernateHbm2ddlAuto);
         properties.setProperty("hibernate.show_sql", hibernateShowSql);
-        properties.setProperty("hibernate.enable_lazy_load_no_trans", String.valueOf(true));
         properties.setProperty("hibernate.dialect", hibernateDialect);
         return properties;
     }
