@@ -164,10 +164,6 @@ if (tpProfile) {
                         res.json().then(json => alert(json.message));
                     }
                 })
-                // .then(res => res.json())
-                // .then(json => {
-                //     alert(json.message);
-                // })
                 .then(() => location.reload())
             topBalanceModal.classList.remove('modal-show');
         });
@@ -236,12 +232,6 @@ if (tpProfile) {
                         });
                     }
                 })
-            // .then(res => res.json())
-            // .then(json => {
-            //     alert(json.message);
-            //     tpProfileForm.login.setAttribute("disabled", "disabled");
-            //     tpProfileForm.email.setAttribute("disabled", "disabled");
-            // });
 
             if (tpProfileForm.name) {
                 fetch(urlCustomers, {
@@ -268,13 +258,6 @@ if (tpProfile) {
                             });
                         }
                     })
-                // .then(res => res.json())
-                // .then(json => {
-                //     tpProfileForm.name.setAttribute("disabled", "disabled");
-                //     tpProfileForm.phoneNumber.setAttribute("disabled", "disabled");
-                //     tpProfileForm.passport.setAttribute("disabled", "disabled");
-                //     btnFormSaveChange.setAttribute("hidden", "hidden");
-                // })
             }
 
         });
@@ -331,9 +314,6 @@ if (tpCars) {
                             }).then(() => location.reload());
                         }
                     })
-                // .then(res => res.json())
-                // .then(json => alert(json.message))
-
             });
         }
     }
@@ -390,12 +370,6 @@ if (tpOrders) {
                     });
                 }
             })
-            // .then(res => res.json())
-            // .then(json => {
-            //     for (let i in json) {
-            //         selectCars.options[i] = new Option(json[i].carModel.carMake + " " + json[i].carModel.name, json[i].id);
-            //     }
-            // })
             .then(selectedIdCar = selectCars.value)
     });
 
@@ -408,30 +382,6 @@ if (tpOrders) {
         fetch(`${urlUsers}/bylogin/${authName.innerHTML}`, {
             method: 'GET'
         })
-            // .then(res => {
-            //     if (res.status == 403) {
-            //         alert("No access rights");
-            //     } else {
-            //         res.json().then(json => {
-            //             console.log(json);
-            //             var stDate = inStDate.value.split(".").reverse();
-            //             stDate = stDate.map(function (item) {
-            //                 return +item;
-            //             });
-            //             var endDate = inEndDate.value.split(".").reverse();
-            //             endDate = endDate.map(function (item) {
-            //                 return +item;
-            //             });
-            //             var order = JSON.stringify({
-            //                 car: {id: selectedIdCar},
-            //                 customer: {id: json.id},
-            //                 startTime: stDate,
-            //                 endTime: endDate
-            //             });
-            //             post(urlOrders, order);
-            //         });
-            //     }
-            // })
             .then(res => res.json())
             .then(json => {
                 let custId;
@@ -480,8 +430,6 @@ if (tpOrdersAdmin) {
                     res.json().then(json => renderOrders(json));
                 }
             })
-        // .then(res => res.json())
-        // .then(json => renderOrders(json))
     });
 
     function renderOrders(orders) {
@@ -521,7 +469,6 @@ if (tpOrdersAdmin) {
                         'Content-Type': 'application/json',
                         'Accept': 'application/json'
                     },
-                    // body: {}
                 })
                     .then(res => {
                         if (res.status == 403) {
@@ -530,8 +477,6 @@ if (tpOrdersAdmin) {
                             res.json().then(json => alert(json.message));
                         }
                     })
-                    // .then(res => res.json())
-                    // .then(json => alert(json.message))
                     .then(() => location.reload())
             });
 
@@ -558,8 +503,6 @@ if (tpOrdersAdmin) {
                                 res.json().then(json => alert(json.message));
                             }
                         })
-                        // .then(res => res.json())
-                        // .then(json => alert(json.message))
                         .then(() => location.reload())
                     orderCancelModal.classList.remove('modal-show');
                 });
