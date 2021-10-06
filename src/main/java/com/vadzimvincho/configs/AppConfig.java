@@ -2,6 +2,7 @@ package com.vadzimvincho.configs;
 
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.*;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
@@ -15,6 +16,7 @@ import static org.modelmapper.config.Configuration.AccessLevel.PRIVATE;
 @ComponentScan({"com.vadzimvincho"})
 @PropertySource("classpath:config.properties")
 public class AppConfig {
+    ApplicationContext context = new AnnotationConfigApplicationContext();
 
     @Bean
     public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
